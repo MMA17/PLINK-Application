@@ -39,47 +39,48 @@
         android:layout_margin="15dp"
         android:id="@+id/layout2"
         >
+
         <EditText
-        android:id="@+id/txtUsername"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Họ và tên"
-        android:inputType="text"
-        android:textSize="13dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        />
+            android:id="@+id/txtUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:hint="Họ và tên"
+            android:inputType="text"
+            android:textSize="13dp" />
         <EditText
             android:id="@+id/txtPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/txtUsername"
             android:hint="Số điện thoại"
-            android:inputType="phone"
+            android:inputType="text"
             android:textSize="13dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             />
+
         <EditText
             android:id="@+id/txtEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtPhone"
-            android:hint="Email"
-            android:inputType="phone"
-            android:textSize="13dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            />
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:textSize="13dp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:passwordToggleEnabled="true"
             android:layout_below="@id/txtEmail"
-            android:id="@+id/test"
+            android:id="@+id/special"
             >
             <EditText
+                android:id="@+id/passwd"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="left"
@@ -91,35 +92,38 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/btnLogin"
+            android:id="@+id/btnRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/test"
+            android:layout_below="@+id/special"
             android:layout_centerInParent="true"
-            android:layout_margin="12dp"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/button"
+
             android:gravity="center"
             android:paddingHorizontal="100dp"
-            android:background="@drawable/button"
             android:text="Đăng ký"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="15dp"
-
-            />
+            android:textSize="15dp" />
 
         <TextView
-            android:id="@+id/Register"
+            android:id="@+id/Cancle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/btnLogin"
+            android:layout_below="@id/btnRegister"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="12dp"
+            android:gravity="center"
             android:text="Đã có tài khoản? Đăng nhập ngay"
             android:textColor="@color/orange"
-            android:gravity="center"
-            android:layout_margin="12dp"
             android:textSize="15dp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
     </RelativeLayout>
 </LinearLayout>
