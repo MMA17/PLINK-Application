@@ -49,17 +49,18 @@
             android:hint="Họ và tên"
             android:inputType="text"
             android:textSize="13dp" />
+
         <EditText
             android:id="@+id/txtPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/txtUsername"
-            android:hint="Số điện thoại"
-            android:inputType="text"
-            android:textSize="13dp"
+
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            />
+            android:hint="Số điện thoại"
+            android:inputType="phone"
+            android:textSize="13dp" />
 
         <EditText
             android:id="@+id/txtEmail"
@@ -79,16 +80,16 @@
             android:layout_below="@id/txtEmail"
             android:id="@+id/special"
             >
+
             <EditText
-                android:id="@+id/passwd"
+                android:id="@+id/txtPass"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="left"
-                android:hint="Mật khẩu"
-                android:textSize="13dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="25dp"
-                />
+                android:gravity="left"
+                android:hint="Mật khẩu"
+                android:textSize="13dp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
