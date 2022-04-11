@@ -11,7 +11,7 @@ import components.member.*;
 import android.widget.TextView;
 
 
-public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
+public class RegisterActivity extends AppCompatActivity  {
     private EditText txtPasswd,txtPhone,txtUsername,txtMail;
     private Button btnRegister;
     private TextView btnCancel;

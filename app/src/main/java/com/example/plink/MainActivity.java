@@ -14,6 +14,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import components.member.Member;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private LinearLayout linearLayout;
     private ImageView btnShowPasswd;
@@ -40,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if(data!= null){
                 member = (Member)data.getSerializableExtra("data");
                 txtPhone.setText(member.getPhone().toString());
-                txtPasswd.setText(member.getPasswd().toString());
+                txtPasswd.setText(member.getPassword().toString());
                 Toast.makeText(this,"Đăng ký thành công",Toast.LENGTH_SHORT).show();
             }
             else{
