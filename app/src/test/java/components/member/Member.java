@@ -9,7 +9,7 @@ public class Member {
     private String phone;
     private String email;
     private String password;
-    private Date DOB;
+    private String DOB;
 
     public Member(int anInt, String string, String cursorString, String s) {
     }
@@ -48,7 +48,7 @@ public class Member {
         return password;
     }
 
-    public Date getDOB() {
+    public String getDOB() {
         return DOB;
     }
 
@@ -76,7 +76,7 @@ public class Member {
         this.password = password;
     }
 
-    public void setDOB(Date DOB) {
+    public void setDOB(String DOB) {
         this.DOB = DOB;
     }
 

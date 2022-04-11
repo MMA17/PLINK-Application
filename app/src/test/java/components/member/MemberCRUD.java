@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.core.view.accessibility.AccessibilityViewCommand;
-
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
