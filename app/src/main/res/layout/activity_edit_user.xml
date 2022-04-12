@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditUserActivity"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/orange"
+        android:text="Sửa thông tin cá nhân"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:layout_marginBottom="22dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Họ và tên\n\t\tNguyen Thanh Cong"
+        android:background="@drawable/borderviewtxt"
+        android:padding="8dp"
+        android:layout_margin="12dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ngày sinh\n\t\t11/4/2022"
+        android:background="@drawable/borderviewtxt"
+        android:padding="8dp"
+        android:layout_margin="12dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Số điện thoại\n\t\t0123456789"
+        android:background="@drawable/borderviewtxt"
+        android:padding="8dp"
+        android:layout_margin="12dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email\n\t\tcongnt@mail.com"
+        android:background="@drawable/borderviewtxt"
+        android:padding="8dp"
+        android:layout_margin="12dp"
+        />
+    <TextView
+        android:id="@+id/txtPosition"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chức danh\n\t\tGiáo viên"
+        android:background="@drawable/borderviewtxt"
+        android:padding="8dp"
+        android:layout_margin="12dp"
+        />
+    <Spinner
+        android:id="@+id/spinner_position"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_weight="1"
+        />
+</LinearLayout>
