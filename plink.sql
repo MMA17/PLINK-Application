@@ -26,6 +26,9 @@ SET time_zone = "+00:00";
 --
 -- Cấu trúc bảng cho bảng `class`
 --
+CREATE DATABASE PLink;
+
+USE PLink;
 
 CREATE TABLE `class` (
   `ID` int(11) NOT NULL,

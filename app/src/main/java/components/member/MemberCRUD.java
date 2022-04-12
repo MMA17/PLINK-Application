@@ -80,7 +80,7 @@ public class MemberCRUD extends SQLiteOpenHelper {
         return memberList;
     }
 
-    public void updateMember(Member member) {
+    public boolean updateMember(Member member) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, member.getName());
@@ -88,14 +88,22 @@ public class MemberCRUD extends SQLiteOpenHelper {
         values.put(KEY_ROLE, member.getRole());
         values.put(KEY_PASSWORD, member.getPassword());
         values.put(KEY_DOB, String.valueOf(member.getDOB()));
-        db.update(TABLE_NAME, values, KEY_ID + " = ?", new String[] { String.valueOf(member.getId()) });
+        long res = db.update(TABLE_NAME, values, KEY_ID + " = ?", new String[] { String.valueOf(member.getId()) });
         db.close();
+        if (res == 0 ){
+            return false;
+        }
+        return true;
     }
 
-    public void deleteMember(int memberId) {
+    public boolean deleteMember(int memberId) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_NAME, KEY_ID + " = ?", new String[] { String.valueOf(memberId) });
+        long res = db.delete(TABLE_NAME, KEY_ID + " = ?", new String[] { String.valueOf(memberId) });
         db.close();
+        if (res == 0 ){
+            return false;
+        }
+        return true;
     }
 
 
