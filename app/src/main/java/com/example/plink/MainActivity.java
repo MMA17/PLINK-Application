@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+
 import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 import components.member.Member;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
     private LinearLayout linearLayout;
     private ImageView btnShowPasswd;
     private EditText txtPasswd,txtPhone;
@@ -32,7 +34,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txtPhone = findViewById(R.id.txtPhone);
         txtPasswd = findViewById(R.id.passwd);
     }
-
 
 
     @Override
