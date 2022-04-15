@@ -18,50 +18,119 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Họ và tên\n\t\tNguyen Thanh Cong"
+        android:text="Họ và tên"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="18dp"
+        />
+    <EditText
+        android:id="@+id/txtUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nguyễn Thành Công"
+        android:textSize="16dp"
         android:background="@drawable/borderviewtxt"
-        android:padding="8dp"
-        android:layout_margin="12dp"
+        android:padding="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ngày sinh"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="18dp"
+        />
+    <Button
+        android:id="@+id/btnDOB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="01/01/2000"
+        android:textSize="16dp"
+        android:textColor="@color/black"
+        android:gravity="left"
+        android:background="@drawable/borderviewtxt"
+        android:padding="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:onClick="openDatePicker"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Số điện thoại"
+
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="18dp"
+        />
+    <TextView
+        android:id="@id/txtPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="07712345688"
+        android:textSize="16dp"
+        android:background="@drawable/borderviewtxt"
+        android:textColor="@color/black"
+        android:padding="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="18dp"
+        />
+    <EditText
+        android:id="@+id/txtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="test@mail.com"
+        android:textSize="16dp"
+        android:background="@drawable/borderviewtxt"
+        android:padding="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
         />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ngày sinh\n\t\t11/4/2022"
-        android:background="@drawable/borderviewtxt"
-        android:padding="8dp"
-        android:layout_margin="12dp"
+        android:text="Chức vụ"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="18dp"
         />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Số điện thoại\n\t\t0123456789"
+        android:text="Giáo viên"
         android:background="@drawable/borderviewtxt"
-        android:padding="8dp"
-        android:layout_margin="12dp"
+        android:padding="10dp"
+        android:textSize="16dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
         />
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Email\n\t\tcongnt@mail.com"
-        android:background="@drawable/borderviewtxt"
-        android:padding="8dp"
-        android:layout_margin="12dp"
-        />
-    <TextView
-        android:id="@+id/txtPosition"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Chức danh\n\t\tGiáo viên"
-        android:background="@drawable/borderviewtxt"
-        android:padding="8dp"
-        android:layout_margin="12dp"
-        />
-    <Spinner
-        android:id="@+id/spinner_position"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
+        android:layout_height="0dp"
         android:layout_weight="1"
-        />
+        android:gravity="center|bottom"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/btnUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button"
+            android:text="Cập nhật"
+            android:textColor="@color/white"
+            android:layout_marginBottom="25dp"
+            >
+        </Button>
+    </LinearLayout>
 </LinearLayout>
