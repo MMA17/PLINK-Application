@@ -37,9 +37,9 @@ public class RegisterActivity extends AppCompatActivity  {
                 user.setPassword(password);
                 MemberCRUD memberCURD = new MemberCRUD(RegisterActivity.this);
 //                memberCURD.onCreate();
-                if(memberCURD.getMemberbyPhone(user.getPhone()) != null){
+                if(memberCURD.getMemberbyPhone(user.getPhone()) == null){
                     //Tai khoan chua co trong DB
-                    System.out.println("Tai khoan chua co trong DB");
+
                     memberCURD.insertMember(user);
                     Toast.makeText(RegisterActivity.this,"Đăng kí thành công",Toast.LENGTH_LONG).show();
                     Intent i = new Intent();
