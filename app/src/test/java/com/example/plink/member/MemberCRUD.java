@@ -7,7 +7,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.core.view.accessibility.AccessibilityViewCommand;
-
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,36 +24,29 @@ public class MemberCRUD extends SQLiteOpenHelper {
     public MemberCRUD(Context context){
         super(context, DATABASE_NAME, null, 1);
     }
-
-    @Override
     public void onCreate(SQLiteDatabase db) {
-        String create_students_table ="create table " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,PHONE TEXT,PASSWORD TEXT, ROLE TEXT, DOB DATE)";
+        String create_students_table ="create table " + TABLE_NAME +" (ID INTEGER PRIMARY KEY,NAME TEXT,PHONE TEXT,PASSWORD TEXT, ROLE TEXT, DOB DATE)";
         db.execSQL(create_students_table);
-        db.close();
     }
-
-    @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME);
         onCreate(db);
     }
 
-    public boolean insertMember(Member member) {
+    public boolean insertMember(String id,String name,String phone,String role, String password, Date dob) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-//        contentValues.put(KEY_ID,member.getId());
-        contentValues.put(KEY_NAME,member.getName());
-        contentValues.put(KEY_PHONE,member.getPhone());
-        contentValues.put(KEY_ROLE,member.getRole());
-        contentValues.put(KEY_PASSWORD,member.getPassword());
-        contentValues.put(KEY_DOB, member.getDOB());
+        contentValues.put(KEY_ID,id);
+        contentValues.put(KEY_NAME,name);
+        contentValues.put(KEY_PHONE,phone);
+        contentValues.put(KEY_ROLE,role);
+        contentValues.put(KEY_PASSWORD,password);
+        contentValues.put(KEY_DOB, String.valueOf(dob));
         long result = db.insert(TABLE_NAME,null ,contentValues);
-        db.close();
         if(result == -1)
             return false;
         else
             return true;
-
     }
 
     public Member getMember(int memberId) {
@@ -64,31 +56,9 @@ public class MemberCRUD extends SQLiteOpenHelper {
         if(cursor != null)
             cursor.moveToFirst();
         Member member = new Member(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6));
-        cursor.close();
-        db.close();
         return member;
     }
 
-    public Member getMemberbyPhone(String phone){
-        SQLiteDatabase db = this.getReadableDatabase();
-        //Cursor cursor = db.query(TABLE_NAME,null,"Phone = ?",new String[]{String.valueOf(phone)},null,null,null);
-        Cursor cursor = db.rawQuery("SELECT * From "+TABLE_NAME+" WHERE Phone = "+phone,null);
-        if(cursor.getCount() > 0){
-            cursor.moveToFirst();
-            Member member = new Member(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6));
-            cursor.close();
-            db.close();
-            return member;
-        }
-        else{
-            cursor.close();
-            db.close();
-            return null;
-        }
-        //Member member = new Member(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6));
-
-
-    }
     public List<Member> getAllMembers() {
         List<Member>  memberList = new ArrayList<>();
         String query = "SELECT * FROM " + TABLE_NAME;
@@ -102,12 +72,10 @@ public class MemberCRUD extends SQLiteOpenHelper {
             memberList.add(member);
             cursor.moveToNext();
         }
-        cursor.close();
-        db.close();
         return memberList;
     }
 
-    public boolean updateMember(Member member) {
+    public void updateMember(Member member) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, member.getName());
@@ -115,38 +83,15 @@ public class MemberCRUD extends SQLiteOpenHelper {
         values.put(KEY_ROLE, member.getRole());
         values.put(KEY_PASSWORD, member.getPassword());
         values.put(KEY_DOB, String.valueOf(member.getDOB()));
-        long res = db.update(TABLE_NAME, values, KEY_ID + " = ?", new String[] { String.valueOf(member.getId()) });
+        db.update(TABLE_NAME, values, KEY_ID + " = ?", new String[] { String.valueOf(member.getId()) });
         db.close();
-        if (res == 0 ){
-            return false;
-        }
-        return true;
     }
 
-    public boolean deleteMember(int memberId) {
+    public void deleteMember(int memberId) {
         SQLiteDatabase db = this.getWritableDatabase();
-        long res = db.delete(TABLE_NAME, KEY_ID + " = ?", new String[] { String.valueOf(memberId) });
+        db.delete(TABLE_NAME, KEY_ID + " = ?", new String[] { String.valueOf(memberId) });
         db.close();
-        if (res == 0 ){
-            return false;
-        }
-        return true;
     }
 
-    public boolean checkLogin(Member member){
-        SQLiteDatabase db = this.getReadableDatabase();
-        String query = "SELECT * from "+ TABLE_NAME + " where "+KEY_PHONE+" = "+member.getPhone()+" AND "+KEY_PASSWORD+" = "+member.getPassword();
-
-        Cursor cursor = db.rawQuery(query,null);
-        cursor = db.query(TABLE_NAME,null,"Phone =? AND Password=?",new String[]{member.getPhone(),member.getPassword()},null,null,null);
-        if(cursor.getCount() <=0 ){
-            //khong co ban ghi
-
-            return false;
-        }
-        cursor.close();
-        db.close();
-        return true;
-    }
 
 }
