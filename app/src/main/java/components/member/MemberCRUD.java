@@ -54,10 +54,10 @@ public class MemberCRUD extends SQLiteOpenHelper {
             return true;
     }
 
-    public Member getMember(int memberId) {
+    public Member getMember(Member mem) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.query(TABLE_NAME, null, KEY_ID + " = ?", new String[] { String.valueOf(memberId) },null, null, null);
+        Cursor cursor = db.query(TABLE_NAME, null, KEY_ID + " = ?", new String[] { String.valueOf(mem.getId()) },null, null, null);
         if(cursor != null)
             cursor.moveToFirst();
         Member member = new Member(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6));
@@ -96,9 +96,9 @@ public class MemberCRUD extends SQLiteOpenHelper {
         return true;
     }
 
-    public boolean deleteMember(int memberId) {
+    public boolean deleteMember(Member member) {
         SQLiteDatabase db = this.getWritableDatabase();
-        long res = db.delete(TABLE_NAME, KEY_ID + " = ?", new String[] { String.valueOf(memberId) });
+        long res = db.delete(TABLE_NAME, KEY_ID + " = ?", new String[] { String.valueOf(member.getId()) });
         db.close();
         if (res == 0 ){
             return false;
