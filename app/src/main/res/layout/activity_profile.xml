@@ -27,15 +27,14 @@
             android:id="@+id/avatar"
             android:layout_width="130dp"
             android:layout_height="160dp"
-            android:src="@drawable/images"
             android:padding="16dp"
-            />
+            android:src="@drawable/images" />
 
         <TextView
             android:id="@+id/txtUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="50dp"
             android:layout_toRightOf="@+id/avatar"
             android:gravity="bottom|left"
             android:paddingLeft="12dp"
