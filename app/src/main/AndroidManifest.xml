@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PLINK">
         <activity
+            android:name=".ClassMemberListActivity"
+            android:exported="false" />
+        <activity
             android:name=".EditUserActivity"
             android:exported="false" />
         <activity
