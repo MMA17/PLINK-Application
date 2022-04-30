@@ -28,7 +28,8 @@ public class MemberCRUD extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String create_students_table ="create table " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,PHONE TEXT,PASSWORD TEXT, ROLE TEXT, DOB DATE)";
+        String create_students_table ="CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "NAME TEXT,PHONE TEXT,PASSWORD TEXT, ROLE TEXT, DOB DATE)";
         db.execSQL(create_students_table);
         db.close();
     }
@@ -60,10 +61,12 @@ public class MemberCRUD extends SQLiteOpenHelper {
     public Member getMember(Member mem) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.query(TABLE_NAME, null, KEY_ID + " = ?", new String[] { String.valueOf(mem.getId()) },null, null, null);
+        Cursor cursor = db.query(TABLE_NAME, null, KEY_ID + " = ?",
+                new String[] { String.valueOf(mem.getId()) },null, null, null);
         if(cursor != null)
             cursor.moveToFirst();
-        Member member = new Member(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6));
+        Member member = new Member(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
+                cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6));
         cursor.close();
         db.close();
         return member;
@@ -75,7 +78,8 @@ public class MemberCRUD extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("SELECT * From "+TABLE_NAME+" WHERE Phone = "+phone,null);
         if(cursor.getCount() > 0){
             cursor.moveToFirst();
-            Member member = new Member(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6));
+            Member member = new Member(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
+                    cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6));
             cursor.close();
             db.close();
             return member;
@@ -98,7 +102,8 @@ public class MemberCRUD extends SQLiteOpenHelper {
         cursor.moveToFirst();
 
         while(cursor.isAfterLast() == false) {
-            Member member = new Member(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6));
+            Member member = new Member(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
+                    cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6));
             memberList.add(member);
             cursor.moveToNext();
         }
@@ -138,7 +143,8 @@ public class MemberCRUD extends SQLiteOpenHelper {
         String query = "SELECT * from "+ TABLE_NAME + " where "+KEY_PHONE+" = "+member.getPhone()+" AND "+KEY_PASSWORD+" = "+member.getPassword();
 
         Cursor cursor = db.rawQuery(query,null);
-        cursor = db.query(TABLE_NAME,null,"Phone =? AND Password=?",new String[]{member.getPhone(),member.getPassword()},null,null,null);
+        cursor = db.query(TABLE_NAME,null,"Phone =? AND Password=?",
+                new String[]{member.getPhone(),member.getPassword()},null,null,null);
         if(cursor.getCount() <=0 ){
             //khong co ban ghi
 

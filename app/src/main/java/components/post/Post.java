@@ -2,31 +2,25 @@ package components.post;
 
 import java.io.Serializable;
 
-import components.classes.Class;
-import components.file.File;
-import components.member.Member;
-
 public class Post implements Serializable {
     private int id;
     private String title;
-    private Member author;
     private String content;
-    private String created_at;
-    private Class classes;
-    private File file;
-
+    private String create_at;
+    private int author;
+    private int classid;
 
     public Post() {
+
     }
 
-    public Post(int id, String title, Member author, String content, String created_at, Class classes, File file) {
+    public Post(int id, String title, String content, String create_at, int author, int classid) {
         this.id = id;
         this.title = title;
-        this.author = author;
         this.content = content;
-        this.created_at = created_at;
-        this.classes = classes;
-        this.file = file;
+        this.create_at = create_at;
+        this.author = author;
+        this.classid = classid;
     }
 
     public int getId() {
@@ -37,22 +31,6 @@ public class Post implements Serializable {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Member getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(Member author) {
-        this.author = author;
-    }
-
     public String getContent() {
         return content;
     }
@@ -61,27 +39,35 @@ public class Post implements Serializable {
         this.content = content;
     }
 
-    public String getCreated_at() {
-        return created_at;
+    public int getAuthor() {
+        return author;
     }
 
-    public void setCreated_at(String created_at) {
-        this.created_at = created_at;
+    public void setAuthor(int author) {
+        this.author = author;
     }
 
-    public Class getClasses() {
-        return classes;
+    public int getClassid() {
+        return classid;
     }
 
-    public void setClasses(Class classes) {
-        this.classes = classes;
+    public void setClassid(int classid) {
+        this.classid = classid;
     }
 
-    public File getFile() {
-        return file;
+    public String getTitle() {
+        return title;
     }
 
-    public void setFile(File file) {
-        this.file = file;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getCreate_at() {
+        return create_at;
+    }
+
+    public void setCreate_at(String create_at) {
+        this.create_at = create_at;
     }
 }
