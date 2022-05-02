@@ -14,7 +14,7 @@ public class PostDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_detail);
-        recyclerView.findViewById(R.id.rvComment);
+        //recyclerView.findViewById(R.id.rvComment);
 
         //init recycleview
         initComment();

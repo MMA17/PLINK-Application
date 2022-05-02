@@ -48,7 +48,7 @@ public class PostCRUD extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(KEY_TITLE, post.getTitle());
-        cv.put(KEY_CONTENT, post.getContent());
+        cv.put(KEY_CONTENT, post.getContent()); 
         cv.put(KEY_CREATEAT, post.getCreate_at());
         cv.put(KEY_AUTHOR, post.getAuthor());
         cv.put(KEY_CLASSID, post.getClassid());
