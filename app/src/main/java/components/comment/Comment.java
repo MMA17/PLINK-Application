@@ -7,20 +7,20 @@ import components.post.Post;
 
 public class Comment implements Serializable {
     private int id;
-    private Member member;
-    private Post post;
-    private String created_at;
     private String content;
+    private String created_at;
+    private int authorid;
+    private int postid;
 
     public Comment() {
     }
 
-    public Comment(int id, Member member, Post post, String created_at, String content) {
+    public Comment(int id, String content, String created_at, int authorid, int postid) {
         this.id = id;
-        this.member = member;
-        this.post = post;
-        this.created_at = created_at;
         this.content = content;
+        this.created_at = created_at;
+        this.authorid = authorid;
+        this.postid = postid;
     }
 
     public int getId() {
@@ -31,20 +31,12 @@ public class Comment implements Serializable {
         this.id = id;
     }
 
-    public Member getMember() {
-        return member;
+    public String getContent() {
+        return content;
     }
 
-    public void setMember(Member member) {
-        this.member = member;
-    }
-
-    public Post getPost() {
-        return post;
-    }
-
-    public void setPost(Post post) {
-        this.post = post;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public String getCreated_at() {
@@ -55,11 +47,19 @@ public class Comment implements Serializable {
         this.created_at = created_at;
     }
 
-    public String getContent() {
-        return content;
+    public int getAuthorid() {
+        return authorid;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setAuthorid(int authorid) {
+        this.authorid = authorid;
+    }
+
+    public int getPostid() {
+        return postid;
+    }
+
+    public void setPostid(int postid) {
+        this.postid = postid;
     }
 }

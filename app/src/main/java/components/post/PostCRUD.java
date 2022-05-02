@@ -11,6 +11,7 @@ import java.util.List;
 
 import components.classes.Class;
 import components.member.Member;
+import components.member.MemberCRUD;
 import components.post.Post;
 
 public class PostCRUD extends SQLiteOpenHelper {
@@ -66,11 +67,14 @@ public class PostCRUD extends SQLiteOpenHelper {
         while(cursor!=null && cursor.moveToNext()){
             int id = cursor.getInt(0);
             String title = cursor.getString(1);
-            String date = cursor.getString(2);
-            int authorid = cursor.getInt(3);
-            Cursor c = db.query("Member",null,"id= ?",new String[]{String.valueOf(authorid)},null,null,null);
-            Member author = new Member(c.getInt(0),c.getString(1),c.getString(2),c.getString(3),c.getString(4),c.getString(5),c.getString(6));
-            int classid = cursor.getInt(4);
+            String content = cursor.getString(2);
+            String date = cursor.getString(3);
+            int authorid = cursor.getInt(4);
+//            Cursor c = db.query("Member",null,"id= ?",new String[]{String.valueOf(authorid)},null,null,null);
+//            Member author = new Member(c.getInt(0),c.getString(1),c.getString(2),c.getString(3),c.getString(4),c.getString(5),c.getString(6));
+            int classid = cursor.getInt(5);
+            Post p = new Post(id,title,content,date,authorid,classid);
+            list.add(p);
         }
 
         return list;
