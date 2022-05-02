@@ -63,7 +63,9 @@ public class MemberCRUD extends SQLiteOpenHelper {
 
         Cursor cursor = db.query(TABLE_NAME, null, KEY_ID + " = ?",
                 new String[] { String.valueOf(mem.getId()) },null, null, null);
-        if(cursor != null)
+        if(cursor == null){
+            return null;
+        }
             cursor.moveToFirst();
         Member member = new Member(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
                 cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6));
@@ -153,6 +155,18 @@ public class MemberCRUD extends SQLiteOpenHelper {
         cursor.close();
         db.close();
         return true;
+    }
+
+    public Member getMemberbyId(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_NAME, null, KEY_ID + " = ?", new String[] { String.valueOf(id) },null, null, null);
+        if(cursor != null)
+            cursor.moveToFirst();
+        Member member = new Member(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6));
+        cursor.close();
+        db.close();
+        return member;
     }
 
 }

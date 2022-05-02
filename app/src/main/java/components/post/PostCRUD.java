@@ -6,6 +6,14 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import components.classes.Class;
+import components.member.Member;
+import components.member.MemberCRUD;
+import components.post.Post;
+
 public class PostCRUD extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "PLink.db";
     private static final String TABLE_NAME = "post";
@@ -50,6 +58,27 @@ public class PostCRUD extends SQLiteOpenHelper {
         return true;
     }
 
+    public List<Post> getAll(Class lop){
+        List<Post> list = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+        String query = "Select * from POST, Class where Post.classid = Class.id and Post.classid="+lop.getId()+" order by date Desc";
+        //Cursor cursor = db.query(TABLE_NAME,null,null,null,null,null,"date DESC");
+        Cursor cursor = db.rawQuery(query,null);
+        while(cursor!=null && cursor.moveToNext()){
+            int id = cursor.getInt(0);
+            String title = cursor.getString(1);
+            String content = cursor.getString(2);
+            String date = cursor.getString(3);
+            int authorid = cursor.getInt(4);
+//            Cursor c = db.query("Member",null,"id= ?",new String[]{String.valueOf(authorid)},null,null,null);
+//            Member author = new Member(c.getInt(0),c.getString(1),c.getString(2),c.getString(3),c.getString(4),c.getString(5),c.getString(6));
+            int classid = cursor.getInt(5);
+            Post p = new Post(id,title,content,date,authorid,classid);
+            list.add(p);
+        }
+
+        return list;
+    }
     public Post getPostByClassID(Post post) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_NAME,null, KEY_CLASSID +" = ?",
@@ -86,3 +115,4 @@ public class PostCRUD extends SQLiteOpenHelper {
         return true;
     }
 }
+
