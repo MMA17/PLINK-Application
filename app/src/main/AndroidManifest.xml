@@ -11,7 +11,7 @@
         android:theme="@style/Theme.PLINK">
         <activity
             android:name=".CreateHomeworkActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".StudyDocumentActivity"
             android:exported="false" />
