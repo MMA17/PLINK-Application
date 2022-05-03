@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".StudyDocumentActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tài liệu học tập"
+        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/orange"
+        android:textSize="25dp"
+
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:layout_margin="15dp"
+        >
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/white_dark"
+            android:drawableLeft="@drawable/iconsdocument"
+            android:text="Danh Sach Lop.pdf"
+            android:textColor="@color/black"
+
+            />
+
+        <Button
+            android:id="@+id/buton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/button1"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/white_dark"
+            android:drawableLeft="@drawable/iconsdocument"
+            android:text="Bang diem lop.pdf"
+            android:textColor="@color/black"
+
+            />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/buton2"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/white_dark"
+            android:drawableLeft="@drawable/iconsdocument"
+            android:text="Bai tap so 1.pdf"
+            android:textColor="@color/black"
+
+            />
+    </RelativeLayout>
+
+</LinearLayout>

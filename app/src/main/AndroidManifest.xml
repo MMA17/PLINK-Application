@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PLINK">
         <activity
+            android:name=".CreateHomeworkActivity"
+            android:exported="true" />
+        <activity
+            android:name=".StudyDocumentActivity"
+            android:exported="false" />
+        <activity
             android:name=".CreateClassActivity"
             android:exported="true" />
         <activity
