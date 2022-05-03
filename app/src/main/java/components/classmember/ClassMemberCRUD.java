@@ -10,8 +10,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
+import components.classes.ClassCRUD;
 import components.file.File;
 import components.classes.Class;
+import components.member.Member;
 
 public class ClassMemberCRUD extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "PLink.db";
@@ -40,7 +42,6 @@ public class ClassMemberCRUD extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_NAME, null, KEY_CLASSID + " = ?", new String[] { String.valueOf(lop.getId()) },null, null, null);
         cursor.moveToFirst();
-
         while(cursor.isAfterLast() == false) {
             ClassMember cm = new ClassMember(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2));
             classMemberList.add(cm);
@@ -69,6 +70,22 @@ public class ClassMemberCRUD extends SQLiteOpenHelper {
             return false;
         }
         return true;
+    }
+    public List<Member> getMemberfromClass(Class lop){
+        List<Member> mem= new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_NAME, null, KEY_CLASSID + " = ?", new String[] { String.valueOf(lop.getId()) },null, null, null);
+        cursor.moveToFirst();
+        while(cursor.isAfterLast() == false) {
+            int memid = cursor.getInt(0);
+            Cursor cursor1 = db.query("Member", null, "id" + "= ?", new String[]{ String .valueOf(memid)}, null, null, null );
+            Member member = new Member(cursor1.getInt(0), cursor1.getString(1), cursor1.getString(2), cursor1.getString(3),
+                    cursor1.getString(4),cursor1.getString(5),cursor1.getString(6));
+            mem.add(member);
+            cursor.moveToNext();
+        }
+        return mem;
+
     }
 
 }

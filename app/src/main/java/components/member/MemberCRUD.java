@@ -30,6 +30,7 @@ public class MemberCRUD extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String create_students_table ="create table " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT,NAME TEXT,PHONE TEXT,PASSWORD TEXT, ROLE TEXT, DOB DATE)";
         db.execSQL(create_students_table);
+        db.close();
     }
 
     @Override
@@ -48,10 +49,12 @@ public class MemberCRUD extends SQLiteOpenHelper {
         contentValues.put(KEY_PASSWORD,member.getPassword());
         contentValues.put(KEY_DOB, member.getDOB());
         long result = db.insert(TABLE_NAME,null ,contentValues);
+        db.close();
         if(result == -1)
             return false;
         else
             return true;
+
     }
 
     public Member getMember(Member mem) {
@@ -61,9 +64,31 @@ public class MemberCRUD extends SQLiteOpenHelper {
         if(cursor != null)
             cursor.moveToFirst();
         Member member = new Member(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6));
+        cursor.close();
+        db.close();
         return member;
     }
 
+    public Member getMemberbyPhone(String phone){
+        SQLiteDatabase db = this.getReadableDatabase();
+        //Cursor cursor = db.query(TABLE_NAME,null,"Phone = ?",new String[]{String.valueOf(phone)},null,null,null);
+        Cursor cursor = db.rawQuery("SELECT * From "+TABLE_NAME+" WHERE Phone = "+phone,null);
+        if(cursor.getCount() > 0){
+            cursor.moveToFirst();
+            Member member = new Member(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6));
+            cursor.close();
+            db.close();
+            return member;
+        }
+        else{
+            cursor.close();
+            db.close();
+            return null;
+        }
+        //Member member = new Member(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6));
+
+
+    }
     public List<Member> getAllMembers() {
         List<Member>  memberList = new ArrayList<>();
         String query = "SELECT * FROM " + TABLE_NAME;
@@ -77,6 +102,8 @@ public class MemberCRUD extends SQLiteOpenHelper {
             memberList.add(member);
             cursor.moveToNext();
         }
+        cursor.close();
+        db.close();
         return memberList;
     }
 
@@ -106,5 +133,20 @@ public class MemberCRUD extends SQLiteOpenHelper {
         return true;
     }
 
+    public boolean checkLogin(Member member){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * from "+ TABLE_NAME + " where "+KEY_PHONE+" = "+member.getPhone()+" AND "+KEY_PASSWORD+" = "+member.getPassword();
+
+        Cursor cursor = db.rawQuery(query,null);
+        cursor = db.query(TABLE_NAME,null,"Phone =? AND Password=?",new String[]{member.getPhone(),member.getPassword()},null,null,null);
+        if(cursor.getCount() <=0 ){
+            //khong co ban ghi
+
+            return false;
+        }
+        cursor.close();
+        db.close();
+        return true;
+    }
 
 }

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import components.member.Member;
+import components.member.MemberCRUD;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -24,17 +26,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText txtPasswd,txtPhone;
     private TextView txtRegister;
     private final static int REQUEST_CODE = 10000;
-    private Member member;
+    private Button btnLogin;
+    private Member member = new Member();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        txtRegister = findViewById(R.id.Register);
+        init();
         txtRegister.setOnClickListener(this);
+        btnLogin.setOnClickListener(this);
+    }
+    private void init(){
+        txtRegister = findViewById(R.id.Register);
         txtPhone = findViewById(R.id.txtPhone);
         txtPasswd = findViewById(R.id.passwd);
+        btnLogin = findViewById(R.id.btnLogin);
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -46,15 +53,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 txtPasswd.setText(member.getPassword().toString());
                 Toast.makeText(this,"Đăng ký thành công",Toast.LENGTH_SHORT).show();
             }
-            else{
-                Toast.makeText(this,"Đăng nhập",Toast.LENGTH_SHORT).show();
-            }
+
         }
     }
     @Override
     public void onClick(View view) {
-        Toast.makeText(this,"Dangg ki",Toast.LENGTH_SHORT).show();
-        Intent i = new Intent(this, RegisterActivity.class);
-        startActivityForResult(i,REQUEST_CODE);
+        if(view.getId() == R.id.Register){
+            Intent i = new Intent(this, RegisterActivity.class);
+            startActivityForResult(i,REQUEST_CODE);
+        }
+        if(view.getId() == R.id.btnLogin){
+            MemberCRUD memberCRUD = new MemberCRUD(MainActivity.this);
+            if(txtPhone.getText() != null && txtPasswd.getText() != null){
+                member.setPassword(txtPasswd.getText().toString());
+                member.setPhone(txtPhone.getText().toString());
+                System.out.println(member.getPassword()+" ~"+member.getPhone());
+                if(memberCRUD.checkLogin(member)){
+                    //DAng nhap thanh cong
+                    Toast.makeText(MainActivity.this,"Login successful",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(MainActivity.this,"Login failed",Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
     }
 }

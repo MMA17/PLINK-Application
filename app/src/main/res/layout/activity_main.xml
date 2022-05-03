@@ -82,10 +82,10 @@
             android:layout_marginEnd="12dp"
             android:layout_marginBottom="12dp"
             android:background="@drawable/button"
+
             android:gravity="center"
 
             android:paddingHorizontal="100dp"
-
             android:text="Đăng nhập"
             android:textAllCaps="false"
             android:textColor="@color/white"

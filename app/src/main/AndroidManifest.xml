@@ -10,19 +10,29 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PLINK">
         <activity
-            android:name=".ClassMemberListActivity"
+            android:name=".AddClassMemberActivity"
             android:exported="false" />
+        <activity
+            android:name=".ClassMemberListActivity"
+            android:exported="true" />
         <activity
             android:name=".EditUserActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".PostDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
-            android:exported="false" />
+            android:name=".CreatePostActivity"
+            android:exported="false" /> <!-- <activity -->
+        <!-- android:name=".CommentActivity" -->
+        <!-- android:exported="true"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.MAIN" /> -->
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- </intent-filter> -->
+        <!-- </activity> -->
         <activity
-            android:name=".MainActivity"
+            android:name=".PostActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,6 +40,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

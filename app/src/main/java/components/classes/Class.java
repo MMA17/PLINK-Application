@@ -1,11 +1,15 @@
 package components.classes;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+
+import components.classmember.ClassMember;
 
 public class Class implements Serializable {
     private int id;
     private String name;
     private String note;
+    ArrayList<ClassMember> classMember;
 
     public Class() {
 
