@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import androidx.annotation.Nullable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,12 +20,17 @@ public class ClassCRUD extends SQLiteOpenHelper {
     private static final String KEY_NAME = "name";
     private static final String KEY_NOTE = "note";
 
+//    public ClassCRUD(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+//        super(context, name, factory, version);
+//    }
+
     public ClassCRUD(Context context){
         super(context, DATABASE_NAME, null, 1);
     }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String create_file_table ="create table " + TABLE_NAME +" (ID INTEGER PRIMARY KEY,NAME TEXT,NOTE TEXT)";
+        String create_file_table ="create table if not exists " + TABLE_NAME +"(ID INTEGER PRIMARY KEY,NAME TEXT,NOTE TEXT)";
         db.execSQL(create_file_table);
     }
 
@@ -90,5 +97,10 @@ public class ClassCRUD extends SQLiteOpenHelper {
             return false;
         }
         return true;
+    }
+
+    public void QueryData (String sql){
+        SQLiteDatabase database = getWritableDatabase();
+        database.execSQL(sql);
     }
 }
