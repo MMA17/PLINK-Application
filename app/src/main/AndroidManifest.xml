@@ -14,7 +14,7 @@
             android:exported="false" />
         <activity
             android:name=".CreatePostActivity"
-            android:exported="false" /> <!-- <activity -->
+            android:exported="true" /> <!-- <activity -->
         <!-- android:name=".CommentActivity" -->
         <!-- android:exported="true"> -->
         <!-- <intent-filter> -->
@@ -43,6 +43,9 @@
         <activity
             android:name=".HomeActivity"
             android:exported="true" />
+        <activity
+            android:name=".CreateClassActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>
