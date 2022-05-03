@@ -26,7 +26,7 @@
         </activity>
         <activity
             android:name=".CreatePostActivity"
-            android:exported="false" /> <!-- <activity -->
+            android:exported="true" /> <!-- <activity -->
         <!-- android:name=".CommentActivity" -->
         <!-- android:exported="true"> -->
         <!-- <intent-filter> -->
@@ -54,7 +54,6 @@
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
-
     </application>
 
 </manifest>

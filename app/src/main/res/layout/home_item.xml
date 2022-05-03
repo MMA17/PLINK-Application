@@ -42,4 +42,5 @@
         android:backgroundTint="@color/white"
         android:src="@drawable/folder" />
 
+>>>>>>> b7d5db4147dda12ad9c4ff7cd44c364093d94cd7
 </RelativeLayout>
