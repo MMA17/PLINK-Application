@@ -63,7 +63,7 @@ public class ClassAdapter extends BaseAdapter {
         viewHolder.btn1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Toast toast = Toast.makeText(context, "---------" + listClass.get(i).getId() + "---------", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(context, "------------" + listClass.get(i).getId() + "------------", Toast.LENGTH_SHORT);
                 toast.show();
             }
         });
