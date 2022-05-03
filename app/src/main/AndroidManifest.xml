@@ -10,8 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PLINK">
         <activity
+            android:name=".CreateClassActivity"
+            android:exported="true" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="true" />
+        <activity
             android:name=".PostDetailActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,11 +37,13 @@
         <activity
             android:name=".PostActivity"
             android:exported="true">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".EditUserActivity"
@@ -46,6 +54,7 @@
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
+
     </application>
 
 </manifest>
