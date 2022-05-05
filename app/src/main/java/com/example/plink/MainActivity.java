@@ -70,7 +70,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 System.out.println(member.getPassword()+" ~"+member.getPhone());
                 if(memberCRUD.checkLogin(member)){
                     //DAng nhap thanh cong
-                    Toast.makeText(MainActivity.this,"Login successful",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,"Login successful",Toast.LENGTH_LONG).show();
+                    Intent i = new Intent(this, HomeActivity.class);
+                    startActivity(i);
                 }
                 else{
                     Toast.makeText(MainActivity.this,"Login failed",Toast.LENGTH_SHORT).show();
