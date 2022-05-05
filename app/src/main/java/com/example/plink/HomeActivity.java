@@ -3,12 +3,16 @@ package com.example.plink;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.AttributeSet;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -32,6 +36,9 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         fab = findViewById(R.id.fab);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
 //        listClass.add(new Class(1000, "Mật mã học cơ sở", ""));
 //        listClass.add(new Class(1001, "An toàn mạng", ""));
 //        listClass.add(new Class(1002, "Kỹ thuật giấu tin", ""));
@@ -65,4 +72,15 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public  boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.main,menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+        return super.onOptionsItemSelected(item);
+    }
 }
+
