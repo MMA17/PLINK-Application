@@ -20,7 +20,16 @@
             android:exported="true" />
         <activity
             android:name=".HomeActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label=""
+            />
+        <activity android:name=".MainActivity"
+            android:exported="true">
+             <intent-filter>
+             <action android:name="android.intent.action.MAIN" />
+             <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
+        </activity>
         <activity
             android:name=".PostDetailActivity"
             android:exported="true">
@@ -33,23 +42,10 @@
         <activity
             android:name=".CreatePostActivity"
             android:exported="true" /> <!-- <activity -->
-        <!-- android:name=".CommentActivity" -->
-        <!-- android:exported="true"> -->
-        <!-- <intent-filter> -->
-        <!-- <action android:name="android.intent.action.MAIN" /> -->
-        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-        <!-- </intent-filter> -->
-        <!-- </activity> -->
+
         <activity
             android:name=".PostActivity"
             android:exported="true">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".EditUserActivity"
