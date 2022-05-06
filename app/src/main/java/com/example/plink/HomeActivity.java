@@ -1,6 +1,7 @@
 package com.example.plink;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.Menu;
@@ -23,44 +24,36 @@ import java.util.List;
 import components.classes.Class;
 import components.classes.ClassAdapter;
 import components.classes.ClassCRUD;
+import components.classmember.ClassMember;
+import components.classmember.ClassMemberAdapter;
+import components.classmember.ClassMemberCRUD;
+import components.member.Member;
 
 public class HomeActivity extends AppCompatActivity {
 
     private ListView listView;
     private List<Class> listClass = new ArrayList<>();
-    private ClassAdapter adapter;
-    private ClassCRUD sqliHelper;
+    private ClassMemberAdapter adapter;
+    private ClassMemberCRUD sqliHelper;
     private FloatingActionButton fab;
+    private Member member;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        Intent i = getIntent();
+        member = (Member) i.getSerializableExtra("Member");
         fab = findViewById(R.id.fab);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
-//        listClass.add(new Class(1000, "Mật mã học cơ sở", ""));
-//        listClass.add(new Class(1001, "An toàn mạng", ""));
-//        listClass.add(new Class(1002, "Kỹ thuật giấu tin", ""));
-//        listClass.add(new Class(1003, "Kiểm thử xâm nhập", ""));
-//        listClass.add(new Class(1004, "Mạng máy tính", ""));
 
         listView = findViewById(R.id.lv_class);
 
-        sqliHelper = new ClassCRUD(HomeActivity.this);
+        sqliHelper = new ClassMemberCRUD(HomeActivity.this);
+        listClass = sqliHelper.getClassbyMember(member,HomeActivity.this);
 
-//        sqliHelper.QueryData("drop table if exists class");
-
-        sqliHelper.QueryData("create table if not exists class(id integer primary key, name text, note text)");
-//        Class lop = new Class(1001, "An toàn mạng", "test");
-//        sqliHelper.insertClass(lop);
-
-//        Class lop = new Class(1002, "Lập trình Android", "MAD is fun");
-//        sqliHelper.insertClass(lop);
-        listClass = sqliHelper.getAllClasses();
-//        System.out.println("----------------"+ listClass.size());
-
-        adapter = new ClassAdapter(listClass, HomeActivity.this);
+        adapter = new ClassMemberAdapter(listClass, HomeActivity.this);
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 

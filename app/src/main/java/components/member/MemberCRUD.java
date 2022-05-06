@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MemberCRUD extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "PLink.db";
+    private static final String DATABASE_NAME = "Plink_database.db";
     private static final String TABLE_NAME = "member";
     private static final String KEY_ID = "id";
     private static final String KEY_NAME = "name";
@@ -28,10 +28,10 @@ public class MemberCRUD extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String create_students_table ="CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT," +
+        String create_students_table ="CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "NAME TEXT,PHONE TEXT,PASSWORD TEXT, ROLE TEXT, DOB DATE)";
         db.execSQL(create_students_table);
-        db.close();
+
     }
 
     @Override
@@ -75,7 +75,7 @@ public class MemberCRUD extends SQLiteOpenHelper {
     public Member getMemberbyPhone(String phone){
         SQLiteDatabase db = this.getReadableDatabase();
         //Cursor cursor = db.query(TABLE_NAME,null,"Phone = ?",new String[]{String.valueOf(phone)},null,null,null);
-        Cursor cursor = db.rawQuery("SELECT * From "+TABLE_NAME+" WHERE Phone = "+phone,null);
+        Cursor cursor = db.rawQuery("SELECT * From "+TABLE_NAME+" WHERE Phone = ?",new String[]{String.valueOf(phone)});
         if(cursor.getCount() > 0){
             cursor.moveToFirst();
             Member member = new Member(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
@@ -151,7 +151,7 @@ public class MemberCRUD extends SQLiteOpenHelper {
             return false;
         }
         cursor.close();
-        db.close();
+
         return true;
     }
 

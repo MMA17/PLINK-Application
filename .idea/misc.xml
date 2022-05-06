@@ -7,10 +7,12 @@
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable-v24/borderview.xml" value="0.2595" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable-v24/borderviewtxt.xml" value="0.2595" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2265" />
+        <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable-v24/listview_selector.xml" value="0.196" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable/border.xml" value="0.196" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable/bordertextview.xml" value="0.2595" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable/button.xml" value="0.2595" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2265" />
+        <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable/listview_selector.xml" value="0.196" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_comment.xml" value="0.4" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_edit_user.xml" value="0.25416666666666665" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_home.xml" value="0.264" />
@@ -24,6 +26,7 @@
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/content_profile.xml" value="0.25416666666666665" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/fragment_first.xml" value="0.25416666666666665" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/fragment_second.xml" value="0.25416666666666665" />
+        <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/home_item.xml" value="0.25416666666666665" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/row_comment.xml" value="0.264" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/menu/main.xml" value="0.25416666666666665" />
         <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/drawable/listview_selector.xml" value="0.2215" />

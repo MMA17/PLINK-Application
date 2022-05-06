@@ -15,7 +15,7 @@ import components.member.MemberCRUD;
 import components.post.Post;
 
 public class PostCRUD extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "PLink.db";
+    private static final String DATABASE_NAME = "Plink_database.db";
     private static final String TABLE_NAME = "post";
     private static final String KEY_ID = "id";
     private static final String KEY_TITLE = "title";

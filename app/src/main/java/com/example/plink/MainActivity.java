@@ -67,11 +67,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if(txtPhone.getText() != null && txtPasswd.getText() != null){
                 member.setPassword(txtPasswd.getText().toString());
                 member.setPhone(txtPhone.getText().toString());
-                System.out.println(member.getPassword()+" ~"+member.getPhone());
+                System.out.println("Check ne");
                 if(memberCRUD.checkLogin(member)){
                     //DAng nhap thanh cong
+                    System.out.println("Login oke");
+                    member = memberCRUD.getMemberbyPhone(member.getPhone());
+                    System.out.println(member.getName()+" ~"+member.getId());
                     Toast.makeText(MainActivity.this,"Login successful",Toast.LENGTH_LONG).show();
                     Intent i = new Intent(this, HomeActivity.class);
+                    i.putExtra("Member",member);
                     startActivity(i);
                 }
                 else{

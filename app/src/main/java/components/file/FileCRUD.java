@@ -13,7 +13,7 @@ import java.util.List;
 import components.member.Member;
 
 public class FileCRUD extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "PLink.db";
+    private static final String DATABASE_NAME = "Plink_database.db";
     private static final String TABLE_NAME = "file";
     private static final String KEY_ID = "id";
     private static final String KEY_NAME = "name";
@@ -91,5 +91,9 @@ public class FileCRUD extends SQLiteOpenHelper {
             return false;
         }
         return true;
+    }
+    public void QueryData (String sql){
+        SQLiteDatabase database = getWritableDatabase();
+        database.execSQL(sql);
     }
 }
