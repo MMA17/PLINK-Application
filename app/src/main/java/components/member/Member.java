@@ -6,21 +6,32 @@ import java.util.Date;
 public class Member implements Serializable {
     private int id;
     private String name;
-    private String phone;
-    private String password;
     private String role;
     private String DOB;
+    private String phone;
+    private String password;
+    private String email;
 
     public Member() {
     }
 
-    public Member(int id, String name, String phone, String password, String role, String DOB) {
+    public Member(int id, String name, String role, String DOB, String phone, String password, String email) {
         this.id = id;
         this.name = name;
-        this.phone = phone;
-        this.password = password;
         this.role = role;
         this.DOB = DOB;
+        this.phone = phone;
+        this.password = password;
+        this.email = email;
+    }
+
+    public Member(String name, String role, String DOB, String phone, String password, String email) {
+        this.name = name;
+        this.role = role;
+        this.DOB = DOB;
+        this.phone = phone;
+        this.password = password;
+        this.email = email;
     }
 
     public int getId() {
@@ -47,6 +58,14 @@ public class Member implements Serializable {
         this.role = role;
     }
 
+    public String getDOB() {
+        return DOB;
+    }
+
+    public void setDOB(String DOB) {
+        this.DOB = DOB;
+    }
+
     public String getPhone() {
         return phone;
     }
@@ -63,11 +82,11 @@ public class Member implements Serializable {
         this.password = password;
     }
 
-    public String getDOB() {
-        return DOB;
+    public String getEmail() {
+        return email;
     }
 
-    public void setDOB(String DOB) {
-        this.DOB = DOB;
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

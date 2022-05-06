@@ -66,7 +66,7 @@ public class MemberCRUD extends SQLiteOpenHelper {
         if(cursor != null)
             cursor.moveToFirst();
         Member member = new Member(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
-                cursor.getString(3),cursor.getString(4),cursor.getString(5));
+                cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6));
         cursor.close();
         db.close();
         return member;
@@ -79,7 +79,7 @@ public class MemberCRUD extends SQLiteOpenHelper {
         if(cursor.getCount() > 0){
             cursor.moveToFirst();
             Member member = new Member(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
-                    cursor.getString(3),cursor.getString(4),cursor.getString(5));
+                    cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6));
             cursor.close();
             db.close();
             return member;
@@ -103,7 +103,7 @@ public class MemberCRUD extends SQLiteOpenHelper {
 
         while(cursor.isAfterLast() == false) {
             Member member = new Member(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
-                    cursor.getString(3),cursor.getString(4),cursor.getString(5));
+                    cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6));
             memberList.add(member);
             cursor.moveToNext();
         }
