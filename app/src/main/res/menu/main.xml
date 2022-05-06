@@ -2,8 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
+
     <item
-        android:id="@+id/notification"
+        android:id="@+id/bell"
         android:icon="@drawable/bell32"
         android:title="notifications"
         app:showAsAction="always"/>

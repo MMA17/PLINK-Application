@@ -72,8 +72,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     //DAng nhap thanh cong
                     System.out.println("Login oke");
                     member = memberCRUD.getMemberbyPhone(member.getPhone());
-                    System.out.println(member.getName()+" ~"+member.getId());
-                    Toast.makeText(MainActivity.this,"Login successful",Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this,"Login successful",Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(this, HomeActivity.class);
                     i.putExtra("Member",member);
                     startActivity(i);

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Adapter;
@@ -11,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +23,7 @@ import components.member.Member;
 
 public class EditUserActivity extends AppCompatActivity {
     private TextView txtPositon;
+    private EditText username,phone,email;
     private Button btnUpdate,btnDOB;
     private DatePickerDialog datePicker;
     private Member member;
@@ -28,11 +31,28 @@ public class EditUserActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_user);
+        Intent i = getIntent();
+        member = (Member) i.getSerializableExtra("Member");
+        initView(member);
         initDatePicker();
         btnUpdate = findViewById(R.id.btnEdit);
-        btnDOB = findViewById(R.id.btnDOB);
-        btnDOB.setText(getDOB());
 
+
+
+    }
+
+    private void initView(Member member) {
+        username = findViewById(R.id.txtUsername);
+        phone = findViewById(R.id.txtPhone);
+        email = findViewById(R.id.txtEmail);
+        txtPositon=findViewById(R.id.txtPosition);
+        btnDOB = findViewById(R.id.btnDOB);
+
+        txtPositon.setText(member.getRole());
+        username.setText(member.getName());
+        phone.setText(member.getPhone());
+        email.setText(member.getEmail());
+        btnDOB.setText(member.getDOB());
     }
 
     private String getDOB() {

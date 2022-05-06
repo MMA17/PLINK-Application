@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -37,6 +38,7 @@ public class HomeActivity extends AppCompatActivity {
     private ClassMemberCRUD sqliHelper;
     private FloatingActionButton fab;
     private Member member;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +59,8 @@ public class HomeActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
+
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,6 +77,14 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         int id = item.getItemId();
+        if(id == R.id.bell){
+            Toast.makeText(HomeActivity.this,"Nelll",Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Intent i = new Intent(this,ProfileActivity.class);
+            i.putExtra("Member",member);
+            startActivity(i);
+        }
         return super.onOptionsItemSelected(item);
     }
 }
