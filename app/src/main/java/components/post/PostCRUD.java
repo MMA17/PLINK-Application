@@ -30,12 +30,16 @@ public class PostCRUD extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTable = "CREATE TABLE " + DATABASE_NAME + " ( id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                " title TEXT, content TEXT, create_at DATE, author INTEGER, classid INTEGER," +
-                " FOREIGN KEY(author) REFERENCES member(id)," +
-                " FOREIGN KEY(classid) REFERENCES class(id) )";
+        System.out.println("Create table");
+        String createTable = "CREATE TABLE " + TABLE_NAME + " ( id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                " title TEXT, content TEXT, create_at DATE, author INTEGER, classid INTEGER)";
+
+//        String createTable = "CREATE TABLE " + DATABASE_NAME + " ( id INTEGER PRIMARY KEY AUTOINCREMENT," +
+//                " title TEXT, content TEXT, create_at DATE, author INTEGER, classid INTEGER," +
+//                " FOREIGN KEY(author) REFERENCES member(id)," +
+//                " FOREIGN KEY(classid) REFERENCES class(id) )";
         db.execSQL(createTable);
-        db.close();
+//        db.close();
     }
 
     @Override
