@@ -2,9 +2,11 @@ package com.example.plink;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,13 +39,13 @@ public class ClassMemberListActivity extends AppCompatActivity {
         ListView lv = (ListView) findViewById(R.id.listview);
 
         ClassMemberCRUD crud = new ClassMemberCRUD(ClassMemberListActivity.this);
-//        List<Member> memberList = crud.getMemberfromClass(lop);
-//        List<String> nameList = new ArrayList<>();
-//        for (int i = 0; i <= memberList.size(); i++){
-//            nameList.add(memberList.get(i).getName());
-//        }
-        String[] locations = {"Hồ tây", "Tháp Rùa", "Chùa một cột", "Quốc tử giám", "Lăng Bác", "Thư viện QG"};
-        lv.setAdapter(new MyListAdapter(this, R.layout.class_member_list_row, Arrays.asList(locations)));
+        List<Member> memberList = crud.getMemberfromClass(lop);
+        List<String> nameList = new ArrayList<>();
+        for (int i = 0; i <= memberList.size(); i++){
+            nameList.add(memberList.get(i).getName());
+        }
+//        String[] locations = {"Hồ tây", "Tháp Rùa", "Chùa một cột", "Quốc tử giám", "Lăng Bác", "Thư viện QG"};
+        lv.setAdapter(new MyListAdapter(this, R.layout.class_member_list_row, nameList));
 
     }
     private class MyListAdapter extends ArrayAdapter<String>{
@@ -68,7 +70,25 @@ public class ClassMemberListActivity extends AppCompatActivity {
                 viewHolder.button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Toast.makeText(getContext(), "Button was clicked" + position, Toast.LENGTH_SHORT).show();
+                        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ClassMemberListActivity.this);
+                        alertDialogBuilder.setMessage("Bán có muốn xóa sản phẩm này!");
+                        alertDialogBuilder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+//                                ClassMember deleteClassMem = new ClassMember(memberList.get(i), lop, 0);
+//                                crud.deleteClassMember(deleteClassMem);
+//                                memberList.remove(i);
+//                                nameList.remove(i);
+//                                arrayAdapter.notifyDataSetChanged();
+                            }
+                        });
+                        alertDialogBuilder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        });
+                        alertDialogBuilder.show();
                     }
                 });
                 convertView.setTag(viewHolder);

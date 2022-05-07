@@ -10,20 +10,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PLINK">
         <activity
-            android:name=".AddClassMemberActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ClassMemberListActivity"
+            android:name=".CreateClassActivity"
             android:exported="true" />
         <activity
-            android:name=".EditUserActivity"
-            android:exported="false" />
+            android:name=".HomeActivity"
+            android:exported="true" />
         <activity
             android:name=".PostDetailActivity"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".CreatePostActivity"
-            android:exported="false" /> <!-- <activity -->
+            android:exported="true" /> <!-- <activity -->
         <!-- android:name=".CommentActivity" -->
         <!-- android:exported="true"> -->
         <!-- <intent-filter> -->
@@ -34,21 +37,28 @@
         <activity
             android:name=".PostActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
+        <activity
+            android:name=".EditUserActivity"
+            android:exported="false" />
         <activity
             android:name=".ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:exported="true" />
-        <activity
             android:name=".RegisterActivity"
             android:exported="false" />
+        <activity
+            android:name=".AddClassMemberActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ClassMemberListActivity"
+            android:exported="true" />
     </application>
-
 </manifest>

@@ -23,7 +23,7 @@ public class ClassCRUD extends SQLiteOpenHelper {
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String create_file_table ="create table " + TABLE_NAME +" (ID INTEGER PRIMARY KEY,NAME TEXT,NOTE TEXT)";
+        String create_file_table ="create table if not exists" + TABLE_NAME +" (ID INTEGER PRIMARY KEY,NAME TEXT,NOTE TEXT)";
         db.execSQL(create_file_table);
     }
 
@@ -90,5 +90,9 @@ public class ClassCRUD extends SQLiteOpenHelper {
             return false;
         }
         return true;
+    }
+    public void QueryData (String sql){
+        SQLiteDatabase database = getWritableDatabase();
+        database.execSQL(sql);
     }
 }

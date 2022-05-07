@@ -1,8 +1,10 @@
 package com.example.plink;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,8 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import components.classes.Class;
+import components.classes.ClassCRUD;
+import components.classmember.ClassMember;
 import components.classmember.ClassMemberCRUD;
 import components.member.Member;
+import components.member.MemberCRUD;
 
 public class AddClassMemberActivity extends AppCompatActivity {
 
@@ -30,8 +35,9 @@ public class AddClassMemberActivity extends AppCompatActivity {
 
         searchView = findViewById(R.id.search_view);
         listView = findViewById(R.id.listview);
+        MemberCRUD crud2 = new MemberCRUD(AddClassMemberActivity.this);
         ClassMemberCRUD crud = new ClassMemberCRUD(AddClassMemberActivity.this);
-        List<Member> memberList = crud.getMemberfromClass(lop);
+        List<Member> memberList = crud2.getAllMembers();
         List<String> nameList = new ArrayList<>();
         for (int i = 0; i <= memberList.size(); i++){
             nameList.add(memberList.get(i).getName());
@@ -41,7 +47,27 @@ public class AddClassMemberActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(AddClassMemberActivity.this, "You Click "+adapterView.getItemAtPosition(i).toString(),Toast.LENGTH_SHORT).show();
+//                Toast.makeText(AddClassMemberActivity.this, "You Click "+adapterView.getItemAtPosition(i).toString(),Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(AddClassMemberActivity.this);
+                alertDialogBuilder.setMessage("Bán có muốn thêm người dùng này vào lớp không");
+                alertDialogBuilder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        ClassMember deleteClassMem = new ClassMember(memberList.get(i), lop, 0);
+                        crud.insertClassMember(deleteClassMem);
+                        memberList.remove(i);
+                        nameList.remove(i);
+                        arrayAdapter.notifyDataSetChanged();
+                    }
+                });
+                alertDialogBuilder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                alertDialogBuilder.show();
+
             }
         });
 
@@ -58,5 +84,5 @@ public class AddClassMemberActivity extends AppCompatActivity {
                 return false;
             }
         });
-
+    }
 }

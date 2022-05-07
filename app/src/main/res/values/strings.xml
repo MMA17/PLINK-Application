@@ -1,3 +1,4 @@
+
 <resources>
     <string name="app_name">PLINK</string>
     <string name="title_activity_profile">ProfileActivity</string>
@@ -10,5 +11,5 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_user_profile">UserProfileActivity</string>
-    <string name="title_activity_class_member_list">ClassMemberListActivity</string>
+
 </resources>
