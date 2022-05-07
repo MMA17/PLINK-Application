@@ -40,7 +40,7 @@ public class HomeActivity extends AppCompatActivity {
 //        sqliHelper.QueryData("drop table if exists class");
 
 //        sqliHelper.QueryData("create table if not exists class(id integer primary key, name text, note text)");
-//        Class lop = new Class(1001, "An toàn mạng", "test");
+//        Class lop = new Class(1002, "Kỹ thuật giấu tin", "test");
 //        sqliHelper.insertClass(lop);
 
         listClass = sqliHelper.getAllClasses();
