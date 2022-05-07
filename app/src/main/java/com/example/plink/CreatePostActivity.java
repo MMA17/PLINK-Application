@@ -28,8 +28,8 @@ public class CreatePostActivity extends AppCompatActivity {
                 String post_content = ((EditText) findViewById(R.id.add_post_content)).getText().toString();
                 Date post_date = Calendar.getInstance().getTime();
                 System.out.println(post_date);
-                int classID = 1;
-                int author = 1;
+                int classID = 2;
+                int author = 2;
 
                 Post p = new Post();
                 p.setTitle(post_title);
