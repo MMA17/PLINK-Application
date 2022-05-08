@@ -10,12 +10,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
+import components.classes.ClassCRUD;
 import components.file.File;
 import components.classes.Class;
+import components.member.Member;
 
 public class ClassMemberCRUD extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "PLink.db";
-    private static final String TABLE_NAME = "file";
+    private static final String DATABASE_NAME = "Plink_database.db";
+    private static final String TABLE_NAME = "classmember";
     private static final String KEY_MEMBERID = "memberid";
     private static final String KEY_CLASSID = "classid";
     private static final String KEY_ISOWNER = "isowner";
@@ -71,4 +73,29 @@ public class ClassMemberCRUD extends SQLiteOpenHelper {
         return true;
     }
 
+    public List<Class> getClassbyMember(Member member, Context context){
+        List<Class> classList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query(TABLE_NAME, null, KEY_MEMBERID + " = ?", new String[] { String.valueOf(member.getId()) },null, null, null);
+        cursor.moveToFirst();
+
+        while (cursor.isAfterLast() == false){
+            int classid = cursor.getInt(1);
+            Class lop = new Class();
+            lop.setId(classid);
+            Cursor c = db.rawQuery("SELECT * from class where id =?",new String[]{String.valueOf(lop.getId())});
+            c.moveToFirst();
+            System.out.println(c.getInt(0)+" "+c.getString(1)+" "+c.getString(2));
+            lop.setId(c.getInt(0));
+            lop.setName(c.getString(1));
+            lop.setNote(c.getString(2));
+            classList.add(lop);
+            cursor.moveToNext();
+        }
+        return classList;
+    }
+    public void QueryData (String sql){
+        SQLiteDatabase database = getWritableDatabase();
+        database.execSQL(sql);
+    }
 }

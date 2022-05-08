@@ -15,7 +15,7 @@ import components.member.MemberCRUD;
 import components.post.Post;
 
 public class PostCRUD extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "PLink.db";
+    private static final String DATABASE_NAME = "Plink_database.db";
     private static final String TABLE_NAME = "post";
     private static final String KEY_ID = "id";
     private static final String KEY_TITLE = "title";
@@ -30,12 +30,16 @@ public class PostCRUD extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTable = "CREATE TABLE " + DATABASE_NAME + " ( id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                " title TEXT, content TEXT, create_at DATE, author INTEGER, classid INTEGER," +
-                " FOREIGN KEY(author) REFERENCES member(id)," +
-                " FOREIGN KEY(classid) REFERENCES class(id) )";
+        System.out.println("Create table");
+        String createTable = "CREATE TABLE " + TABLE_NAME + " ( id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                " title TEXT, content TEXT, create_at DATE, author INTEGER, classid INTEGER)";
+
+//        String createTable = "CREATE TABLE " + DATABASE_NAME + " ( id INTEGER PRIMARY KEY AUTOINCREMENT," +
+//                " title TEXT, content TEXT, create_at DATE, author INTEGER, classid INTEGER," +
+//                " FOREIGN KEY(author) REFERENCES member(id)," +
+//                " FOREIGN KEY(classid) REFERENCES class(id) )";
         db.execSQL(createTable);
-        db.close();
+//        db.close();
     }
 
     @Override
