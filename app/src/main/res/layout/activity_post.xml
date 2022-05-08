@@ -14,7 +14,6 @@
         android:text="Thông báo"
         android:textColor="@color/orange"
         android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayoutPost"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.028"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,155 +24,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="693dp" />
+        app:layout_constraintGuide_percent="0.051983584" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayoutPost"
-        android:layout_width="409dp"
-        android:layout_height="443dp"
-        android:layout_marginBottom="220dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <HorizontalScrollView
-            android:id="@+id/HorizontalScrollView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/PostDescription"
-            app:layout_constraintVertical_bias="0.0">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/button1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="6dp"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:drawableLeft="@drawable/iconsdocument"
-                    android:maxLength="12"
-                    android:padding="8dp"
-                    android:text="Danh sach lop.pdf"
-                    android:textSize="12dp" />
-
-                <Button
-                    android:id="@+id/button2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="6dp"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:drawableLeft="@drawable/iconsdocument"
-                    android:maxLength="12"
-                    android:padding="8dp"
-                    android:text="Bang diem.pdf"
-                    android:textSize="12dp" />
-
-                <Button
-                    android:id="@+id/button3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="6dp"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:drawableLeft="@drawable/iconsdocument"
-                    android:maxLength="12"
-                    android:padding="8dp"
-                    android:text="Bai tap.pdf"
-                    android:textSize="12dp" />
-            </LinearLayout>
-        </HorizontalScrollView>
-
-        <ImageView
-            android:id="@+id/PostAvatar"
-            android:layout_width="69dp"
-            android:layout_height="59dp"
-            android:layout_marginEnd="13dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/position"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.041"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <TextView
-            android:id="@+id/position"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Giáo viên"
-            android:textColor="@color/orange"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.234"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.106" />
-
-        <TextView
-            android:id="@+id/postDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="01/01/2022"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.958"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.15" />
-
-        <TextView
-            android:id="@+id/PostDescription"
-            android:layout_width="377dp"
-            android:layout_height="101dp"
-            android:text="Xin chào mừng tất cả các bạn đã tham gia nhóm lớp D18. Danh sách sinh viên sẽ trong file đính kèm"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.218"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.286" />
-
-        <TextView
-            android:id="@+id/PostUsername"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nguyễn Đức An"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.262"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.037" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-<!--    <ImageView-->
-<!--        android:id="@+id/btn_add_post"-->
-<!--        android:layout_width="50dp"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:src="@drawable/icon_add"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEsndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.955"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.976" />-->
+    <!--    <ImageView-->
+    <!--        android:id="@+id/btn_add_post"-->
+    <!--        android:layout_width="50dp"-->
+    <!--        android:layout_height="50dp"-->
+    <!--        android:src="@drawable/icon_add"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEsndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.955"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintVertical_bias="0.976" />-->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_add_post"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="164dp"
         android:layout_marginBottom="12dp"
         android:backgroundTint="@color/white"
         android:src="@drawable/plus2"
@@ -182,8 +49,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.954"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ListView
+        android:id="@+id/lv_post"
+        android:layout_width="409dp"
+        android:layout_height="612dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayoutPost"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.495" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,8 +20,8 @@ public class PostCRUD extends SQLiteOpenHelper {
     private static final String KEY_ID = "id";
     private static final String KEY_TITLE = "title";
     private static final String KEY_CONTENT = "content";
-    private static final String KEY_CREATEAT = "create_at";
-    private static final String KEY_AUTHOR = "author";
+    private static final String KEY_CREATEAT = "created_at";
+    private static final String KEY_AUTHOR = "authorid";
     private static final String KEY_CLASSID = "classid";
 
     public PostCRUD(Context context) {
@@ -83,18 +83,24 @@ public class PostCRUD extends SQLiteOpenHelper {
 
         return list;
     }
-    public Post getPostByClassID(Post post) {
+    public List<Post> getPostByClass(Class c) {
         SQLiteDatabase db = this.getReadableDatabase();
+        List<Post> listPost = new ArrayList<>();
         Cursor cursor = db.query(TABLE_NAME,null, KEY_CLASSID +" = ?",
-                new String[] { String.valueOf(post.getClassid()) }, null, null ,null );
-        if (cursor != null) {
-            cursor.moveToFirst();
+                new String[] { String.valueOf(c.getId()) }, null, null ,null );
+
+        cursor.moveToFirst();
+
+        while (cursor.isAfterLast() == false) {
+            Post p = new Post(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
+                    cursor.getString(3), cursor.getInt(4), cursor.getInt(5));
+            listPost.add(p);
+            cursor.moveToNext();
         }
-        Post p = new Post(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
-                cursor.getString(3), cursor.getInt(4), cursor.getInt(5));
+
         cursor.close();
         db.close();
-        return p;
+        return listPost;
     }
 
     public boolean updatePost(Post post) {
