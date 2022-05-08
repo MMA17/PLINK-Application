@@ -58,7 +58,7 @@ public class MemberCRUD extends SQLiteOpenHelper {
 
     }
 
-    public Member getMember(Member mem) {
+    public Member getMemberByID(Member mem) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_NAME, null, KEY_ID + " = ?",
