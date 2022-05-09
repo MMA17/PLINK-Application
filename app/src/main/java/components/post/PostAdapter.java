@@ -78,7 +78,7 @@ public class PostAdapter extends BaseAdapter {
 
         String authorName = m.getName();
 
-        ViewHolder.Post_author_avatar.setImageResource(R.drawable.avatar);
+        ViewHolder.Post_author_avatar.setImageResource(R.drawable.avatar2);
         ViewHolder.Post_author.setText(m.getName());
         ViewHolder.Post_date.setText(listPost.get(i).getCreate_at());
         ViewHolder.Post_author_position.setText("Giáo Viên");
