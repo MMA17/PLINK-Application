@@ -12,8 +12,14 @@
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable/bordertextview.xml" value="0.2595" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable/button.xml" value="0.2595" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2265" />
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable/listview_selector.xml" value="0.196" />
+>>>>>>> 7a02a025736f1c09d29bf1c832d45ec6988ba17a
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_comment.xml" value="0.4" />
+>>>>>>> f797ddfb8b8e3227e89649f4be52bc204a08a024
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_edit_user.xml" value="0.25416666666666665" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_home.xml" value="0.264" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_main.xml" value="0.25" />
@@ -26,7 +32,31 @@
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/content_profile.xml" value="0.25416666666666665" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/fragment_first.xml" value="0.25416666666666665" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/fragment_second.xml" value="0.25416666666666665" />
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/drawable-v24/borderviewtxt.xml" value="0.298" />
+        <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.298" />
+        <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/drawable/button.xml" value="0.298" />
+        <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/drawable/ic_launcher_background.xml" value="0.298" />
+        <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/layout/activity_add_class_member.xml" value="0.3098958333333333" />
+        <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/layout/activity_class_members_list.xml" value="0.2264151024877837" />
+        <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/layout/activity_comment.xml" value="0.2942708333333333" />
+        <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/layout/activity_create_post.xml" value="0.2942708333333333" />
+        <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/layout/activity_edit_user.xml" value="0.140625" />
+        <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/layout/activity_main.xml" value="0.2942708333333333" />
+        <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/layout/activity_post.xml" value="0.2988679352838745" />
+        <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/layout/activity_post_detail.xml" value="0.140625" />
+        <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/layout/activity_profile.xml" value="0.14010416666666667" />
+        <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/layout/activity_register.xml" value="0.14010416666666667" />
+        <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/layout/class_member_list_row.xml" value="0.2264151024877837" />
+        <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/layout/fragment_first.xml" value="0.14010416666666667" />
+        <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/layout/fragment_first2.xml" value="0.14010416666666667" />
+        <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/layout/fragment_second.xml" value="0.14010416666666667" />
+        <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/layout/fragment_second2.xml" value="0.14010416666666667" />
+=======
+=======
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/home_item.xml" value="0.25416666666666665" />
+>>>>>>> 7a02a025736f1c09d29bf1c832d45ec6988ba17a
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/row_comment.xml" value="0.264" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/menu/main.xml" value="0.25416666666666665" />
         <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/drawable/listview_selector.xml" value="0.2215" />
@@ -76,6 +106,7 @@
         <entry key="..\:/Users/Hoang Viet/AndroidStudioProjects/PLINK-Application/app/src/main/res/layout/post_item.xml" value="0.3875" />
         <entry key="..\:/Users/Hoang Viet/AndroidStudioProjects/PLINK-Application/app/src/main/res/layout/row_comment.xml" value="0.3875" />
         <entry key="..\:/Users/Hoang Viet/AndroidStudioProjects/PLINK-Application/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1925" />
+>>>>>>> f797ddfb8b8e3227e89649f4be52bc204a08a024
       </map>
     </option>
   </component>

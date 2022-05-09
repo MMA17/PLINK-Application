@@ -32,8 +32,6 @@ public class ClassMemberAdapter extends BaseAdapter {
         this.member = member;
     }
 
-
-
     private class ViewHolder{
         TextView tvName;
         ImageButton btn1, btn2, btn3;
