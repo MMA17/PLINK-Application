@@ -33,7 +33,6 @@ public class RegisterActivity extends AppCompatActivity  {
                 Member user = new Member();
                 user.setName(name);
                 user.setPhone(phone);
-                user.setEmail(email);
                 user.setPassword(password);
                 MemberCRUD memberCURD = new MemberCRUD(RegisterActivity.this);
 //                memberCURD.onCreate();

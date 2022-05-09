@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CommentCRUD extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "PLink.db";
+    private static final String DATABASE_NAME = "Plink_database.db";
     private static final String TABLE_NAME = "comment";
     private static final String KEY_ID = "id";
     private static final String KEY_CONTENT = "content";
@@ -50,5 +50,9 @@ public class CommentCRUD extends SQLiteOpenHelper {
             listComment.add(cmt);
         }
         return listComment;
+    }
+    public void QueryData (String sql){
+        SQLiteDatabase database = getWritableDatabase();
+        database.execSQL(sql);
     }
 }

@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,92 +19,42 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import components.classmember.ClassMember;
+import components.classmember.ClassMember2Adapter;
 import components.classmember.ClassMemberCRUD;
 import components.classes.Class;
 import components.member.Member;
 
 
 public class ClassMemberListActivity extends AppCompatActivity {
-
+    private FloatingActionButton fab;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_class_members_list);
-        Class lop = new Class();
+        Class lop = new Class(2,"","");
         ListView lv = (ListView) findViewById(R.id.listview);
 
         ClassMemberCRUD crud = new ClassMemberCRUD(ClassMemberListActivity.this);
         List<Member> memberList = crud.getMemberfromClass(lop);
-        List<String> nameList = new ArrayList<>();
-        for (int i = 0; i <= memberList.size(); i++){
-            nameList.add(memberList.get(i).getName());
-        }
-//        String[] locations = {"Hồ tây", "Tháp Rùa", "Chùa một cột", "Quốc tử giám", "Lăng Bác", "Thư viện QG"};
-        lv.setAdapter(new MyListAdapter(this, R.layout.class_member_list_row, nameList));
 
-    }
-    private class MyListAdapter extends ArrayAdapter<String>{
-        private int layout;
-
-        private MyListAdapter(@NonNull Context context, int resource, @NonNull List<String> objects) {
-            super(context, resource, objects);
-            layout = resource;
-        }
-
-        @NonNull
-        @Override
-        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-            ViewHolder mainViewHolder = null;
-            if(convertView == null){
-                LayoutInflater inflater = LayoutInflater.from(getContext());
-                convertView = inflater.inflate(layout, parent, false);
-                ViewHolder viewHolder = new ViewHolder();
-                viewHolder.thumbnail = (ImageView) convertView.findViewById(R.id.list_item_thumbnail);
-                viewHolder.title = (TextView) convertView.findViewById(R.id.list_item_textView);
-                viewHolder.button = (Button) convertView.findViewById(R.id.list_item_button);
-                viewHolder.button.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(ClassMemberListActivity.this);
-                        alertDialogBuilder.setMessage("Bán có muốn xóa sản phẩm này!");
-                        alertDialogBuilder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-//                                ClassMember deleteClassMem = new ClassMember(memberList.get(i), lop, 0);
-//                                crud.deleteClassMember(deleteClassMem);
-//                                memberList.remove(i);
-//                                nameList.remove(i);
-//                                arrayAdapter.notifyDataSetChanged();
-                            }
-                        });
-                        alertDialogBuilder.setNegativeButton("Không", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-
-                            }
-                        });
-                        alertDialogBuilder.show();
-                    }
-                });
-                convertView.setTag(viewHolder);
+        lv.setAdapter(new ClassMember2Adapter(memberList, ClassMemberListActivity.this, lop));
+        fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ClassMemberListActivity.this, AddClassMemberActivity.class);
+                intent.putExtra("class", lop);
+                startActivity(intent);
             }
-            else{
-                mainViewHolder = (ViewHolder) convertView.getTag();
-                mainViewHolder.title.setText(getItem(position));
-            }
+        });
+    }
 
-            return convertView;
-        }
-    }
-    public class ViewHolder{
-        ImageView thumbnail;
-        TextView title;
-        Button button;
-    }
 }
