@@ -1,6 +1,7 @@
 package components.classmember;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,20 +10,26 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.contract.ActivityResultContracts;
+
 import com.example.plink.HomeActivity;
+import com.example.plink.PostActivity;
 import com.example.plink.R;
 
 import java.util.List;
 
 import components.classes.Class;
+import components.member.Member;
 
 public class ClassMemberAdapter extends BaseAdapter {
     private List<Class> listClass;
     private Context mContext;
+    private Member member;
 
-    public ClassMemberAdapter(List<Class> list, Context mContext) {
+    public ClassMemberAdapter(List<Class> list, Context mContext, Member member) {
         this.listClass = list;
         this.mContext = mContext;
+        this.member = member;
     }
 
     private class ViewHolder{
@@ -69,6 +76,10 @@ public class ClassMemberAdapter extends BaseAdapter {
             public void onClick(View view) {
                 Toast toast = Toast.makeText(mContext, "------------" + listClass.get(i).getName() + "------------", Toast.LENGTH_SHORT);
                 toast.show();
+                Intent intent = new Intent(mContext, PostActivity.class);
+                intent.putExtra("user", member);
+                intent.putExtra("class", listClass.get(i));
+                mContext.startActivity(intent);
             }
         });
         return view;

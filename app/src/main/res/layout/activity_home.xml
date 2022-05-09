@@ -33,10 +33,10 @@
 
     <ListView
         android:id="@+id/lv_class"
-        android:layout_below="@+id/subTitle"
         style="@style/Widget.AppCompat.ListView.DropDown"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/subTitle"
         android:layout_marginHorizontal="20dp"
         android:layout_marginVertical="10dp"
         android:divider="#fff"
