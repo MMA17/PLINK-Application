@@ -24,7 +24,7 @@
         android:id="@+id/constraintLayout"
         android:layout_width="410dp"
         android:layout_height="367dp"
-        android:layout_marginBottom="288dp"
+        android:layout_marginBottom="292dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -37,10 +37,9 @@
             android:layout_margin="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.25"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/PostDescription"
-            app:layout_constraintVertical_bias="0.157">
+            app:layout_constraintVertical_bias="0.0">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -128,15 +127,15 @@
 
         <TextView
             android:id="@+id/PostDescription"
-            android:layout_width="364dp"
-            android:layout_height="79dp"
+            android:layout_width="360dp"
+            android:layout_height="84dp"
             android:text="Xin chào mừng tất cả các bạn đã tham gia nhóm lớp D18. Danh sách sinh viên sẽ trong file đính kèm"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.217"
+            app:layout_constraintHorizontal_bias="0.29"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.295" />
+            app:layout_constraintVertical_bias="0.458" />
 
         <TextView
             android:id="@+id/PostUsername"
@@ -149,6 +148,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.037" />
+
+        <TextView
+            android:id="@+id/Post_title"
+            android:layout_width="395dp"
+            android:layout_height="30dp"
+            android:text="Tiêu đề bài đăng"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/PostDescription"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/PostAvatar" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
