@@ -163,38 +163,41 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="112dp"
-        android:layout_height="33dp"
-        android:text="Bình luận"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.053"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.043" />
-
     <ListView
-        android:id="@+id/listPostComment"
-        android:layout_width="410dp"
-        android:layout_height="232dp"
+        android:id="@+id/lv_comment"
+        android:layout_width="407dp"
+        android:layout_height="233dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btn_comment_post"
         android:layout_width="90dp"
         android:layout_height="40dp"
         android:text="Gửi"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/lv_comment"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/Comment_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.653" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.473" />
+
+    <EditText
+        android:id="@+id/Comment_content"
+        android:layout_width="282dp"
+        android:layout_height="42dp"
+        android:ems="10"
+        android:hint="Bình luận gì đó..."
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/lv_comment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_comment_post"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+    />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

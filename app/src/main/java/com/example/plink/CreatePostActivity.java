@@ -9,6 +9,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -36,15 +42,18 @@ public class CreatePostActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String post_title = ((EditText) findViewById(R.id.add_post_title)).getText().toString();
                 String post_content = ((EditText) findViewById(R.id.add_post_content)).getText().toString();
-                Date post_date = Calendar.getInstance().getTime();
-                System.out.println(post_date);
+
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+                LocalDateTime now = LocalDateTime.now();
+
                 int classID = c.getId();
                 int author = member.getId();
 
                 Post p = new Post();
                 p.setTitle(post_title);
                 p.setContent(post_content);
-                p.setCreate_at(post_date.toString());
+                p.setCreate_at(dtf.format(now));
+                //System.out.println(dtf.format(now));
                 p.setAuthor(author);
                 p.setClassid(classID);
 

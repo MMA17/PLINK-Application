@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginHorizontal="20dp">
+
+    <ImageView
+        android:id="@+id/Commentor_avatar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="5sp"
+        android:src="@drawable/avatar2" />
+
+    <TextView
+        android:id="@+id/Commentor_name"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="2dp"
+        android:text="Người bình luận"
+        android:textColor="@color/orange"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/Commentor_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="5dp"
+        android:maxWidth="250dp"
+        android:maxHeight="100dp"
+        android:text="Nội dung bình luận"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/Commentor_date"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="5dp"
+        android:text="01/01/2022"
+        android:textSize="11sp" />
+</RelativeLayout>
