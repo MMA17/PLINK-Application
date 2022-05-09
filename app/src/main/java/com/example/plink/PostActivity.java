@@ -3,6 +3,7 @@ package com.example.plink;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +44,7 @@ public class PostActivity extends AppCompatActivity {
         sqliHelper = new PostCRUD(PostActivity.this);
         listPost = sqliHelper.getPostByClass(c);
 
-        adapter = new PostAdapter(listPost, PostActivity.this);
+        adapter = new PostAdapter(listPost, PostActivity.this, member);
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
@@ -51,10 +53,26 @@ public class PostActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(PostActivity.this, CreatePostActivity.class);
-                startActivity(i);
+                i.putExtra("user", member);
+                i.putExtra("class", c);
+                startActivityForResult(i, 1);
             }
         });
 
+    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK){
+                finish();
+                startActivity(getIntent());
+            }
+//            if (resultCode == Activity.RESULT_CANCELED) {
+//                Toast.makeText(this, "Error", Toast.LENGTH_LONG).show();
+//            }
+        }
     }
 }

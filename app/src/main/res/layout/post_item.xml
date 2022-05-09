@@ -24,11 +24,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="93dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="690dp"
+        android:layout_marginStart="94dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="43dp"
         android:text="Tên tác giả"
         android:textSize="17sp" />
 
@@ -36,11 +36,9 @@
         android:id="@+id/Post_author_position"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/Post_author"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="218dp"
-        android:layout_marginBottom="658dp"
+        android:layout_marginTop="15dp"
         android:layout_toEndOf="@+id/Post_author_avatar"
         android:text="Chức vụ"
         android:textColor="#FF9800"
@@ -50,10 +48,10 @@
         android:id="@+id/Post_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/Post_author"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
+        android:layout_marginTop="46dp"
         android:layout_marginEnd="13dp"
-        android:layout_marginBottom="649dp"
         android:text="01/01/2022" />
 
     <TextView
@@ -63,10 +61,8 @@
         android:layout_below="@+id/Post_author_avatar"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
         android:layout_marginStart="11dp"
         android:layout_marginTop="26dp"
         android:layout_marginEnd="7dp"
-        android:layout_marginBottom="516dp"
         android:text="Nội dung bài đăng" />
 </RelativeLayout>
