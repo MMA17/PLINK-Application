@@ -1,32 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ExcerciseActivity"
     android:orientation="vertical">
-    <Toolbar
-        android:id="@+id/excercise_toolbar"
+
+    <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:navigationIcon="@drawable/backbutton"
-        android:title="Bài tập"
-        android:titleTextColor="@color/orange"
+        android:id="@+id/excercise_toolbar"
+        app:title="Bài tập"
+        app:titleTextColor="@color/orange"
+        app:navigationIcon="@drawable/backbutton"
         />
     <ListView
         android:id="@+id/excercise_listview"
         android:layout_margin="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:divider="#fff"
+        android:dividerHeight="40dp"
+        android:layout_below="@+id/excercise_toolbar"
         />
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_excercise"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
         app:fabSize="normal"
+        android:layout_below="@+id/excercise_listview"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:src="@drawable/plus2"
-       android:layout_gravity="end"
+        app:backgroundTint="@color/white_dark"
+
         />
-</LinearLayout>
+</RelativeLayout>

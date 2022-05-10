@@ -21,7 +21,7 @@
             android:exported="true" />
         <activity
             android:name=".StudyDocumentActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".CreateClassActivity"
             android:exported="true" />
