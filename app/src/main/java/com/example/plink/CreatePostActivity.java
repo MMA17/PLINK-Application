@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.net.URL;
+import java.nio.file.Path;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -19,6 +21,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 import components.classes.Class;
+import components.file.File;
+import components.file.FileCRUD;
 import components.member.Member;
 import components.post.Post;
 import components.post.PostCRUD;
@@ -49,6 +53,7 @@ public class CreatePostActivity extends AppCompatActivity {
                 int classID = c.getId();
                 int author = member.getId();
 
+//              Get Post info
                 Post p = new Post();
                 p.setTitle(post_title);
                 p.setContent(post_content);
@@ -57,8 +62,24 @@ public class CreatePostActivity extends AppCompatActivity {
                 p.setAuthor(author);
                 p.setClassid(classID);
 
+//              Get File info
+                File f = new File();
+                String input = ((EditText) findViewById(R.id.fileURL)).getText().toString();
+                f.setPath(input);
+                try {
+                    URL fileName = new URL(input);
+                    f.setName(fileName.getPath());
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                f.setSize(0);
+
                 PostCRUD crud = new PostCRUD(CreatePostActivity.this);
-                if (crud.insertPost(p)) {
+                FileCRUD fileCrud = new FileCRUD(CreatePostActivity.this);
+                p = crud.insertPost(p);
+                if (p != null && fileCrud.insertFile(f,p)) {
                     Toast.makeText(CreatePostActivity.this, "Tạo bài đăng thành công!", Toast.LENGTH_LONG).show();
                     Intent returnIntent = new Intent();
                     setResult(Activity.RESULT_OK, returnIntent);
