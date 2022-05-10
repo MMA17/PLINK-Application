@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/excercise_author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/avatar2"
+        android:layout_margin="20dp"
+        />
+
+    <TextView
+        android:id="@+id/author_name"
+        android:layout_width="wrap_content"
+        android:layout_height="29dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@+id/excercise_author"
+        android:fontFamily="@font/nunito_sans"
+        android:text="Nguyễn Trung Kiên"
+        android:textColor="@color/black3" />
+
+    <TextView
+        android:id="@+id/author_role"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/author_name"
+        android:layout_toRightOf="@+id/excercise_author"
+        android:fontFamily="@font/merriweather_bold"
+        android:text="Giáo viên"
+        android:textColor="@color/orange" />
+    <TextView
+        android:id="@+id/excercise_createdat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/author_role"
+        android:text="01/01/2022"
+        android:layout_marginEnd="13dp"
+        android:layout_alignParentEnd="true"
+        />
+
+    <TextView
+        android:id="@+id/excercise_content"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_below="@+id/excercise_author"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="7dp"
+        android:text="Nội dung bài tập" />
+</RelativeLayout>
