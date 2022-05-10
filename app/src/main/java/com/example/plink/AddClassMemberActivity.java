@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -41,6 +42,16 @@ public class AddClassMemberActivity extends AppCompatActivity {
 
         MemberCRUD crud2 = new MemberCRUD(AddClassMemberActivity.this);
         ClassMemberCRUD crud = new ClassMemberCRUD(AddClassMemberActivity.this);
+
+        Button btnDone = (Button) findViewById(R.id.btn_done);
+        btnDone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent returnIntent = new Intent();
+                setResult(RESULT_OK, returnIntent);
+                finish();
+            }
+        });
 
         List<Member> memberList = crud2.getAllMembers();
         arrayAdapter = new MemberAdapter(memberList,AddClassMemberActivity.this,lop);
