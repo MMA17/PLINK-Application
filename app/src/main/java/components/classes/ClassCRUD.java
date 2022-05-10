@@ -59,17 +59,23 @@ public class ClassCRUD extends SQLiteOpenHelper {
         }
         return classList;
     }
-    public boolean insertClass(Class lop) {
+    public Class insertClass(Class lop) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(KEY_ID,lop.getId());
+//        contentValues.put(KEY_ID,lop.getId());
         contentValues.put(KEY_NAME,lop.getName());
         contentValues.put(KEY_NOTE,lop.getNote());
         long result = db.insert(TABLE_NAME,null ,contentValues);
         if(result == -1)
-            return false;
-        else
-            return true;
+            return null;
+        else{
+            Cursor cursor = db.query(TABLE_NAME, null, KEY_NAME + " = ?", new String[] { String.valueOf(lop.getName()) },null, null, null);
+            if(cursor != null)
+                cursor.moveToFirst();
+            Class lopp = new Class(cursor.getInt(0), cursor.getString(1), cursor.getString(2));
+            return lopp;
+        }
+
     }
     public boolean updateClass(Class lop) {
         SQLiteDatabase db = this.getWritableDatabase();

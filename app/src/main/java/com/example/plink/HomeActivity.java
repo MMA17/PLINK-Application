@@ -38,6 +38,7 @@ public class HomeActivity extends AppCompatActivity {
     private ClassMemberCRUD sqliHelper;
     private FloatingActionButton fab;
     private Member member;
+    private static int CREATECLASS = 100001;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,8 +69,13 @@ public class HomeActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+//                Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+
+                Intent intent = new Intent(HomeActivity.this, CreateClassActivity.class);
+                intent.putExtra("user", member);
+
+                startActivityForResult(intent);
             }
         });
     }
