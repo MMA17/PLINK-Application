@@ -9,8 +9,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import components.member.Member;
+import components.post.Post;
 
 public class FileCRUD extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "Plink_database.db";
@@ -41,9 +43,9 @@ public class FileCRUD extends SQLiteOpenHelper {
         File f = new File(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getInt(3));
         return f;
     }
-    public List<File> getAllFile() {
+    public List<File> getAllFileOfPost(Post post) {
         List<File>  fileList = new ArrayList<>();
-        String query = "SELECT * FROM " + TABLE_NAME;
+        String query = "SELECT * FROM " + TABLE_NAME + ", postfile WHERE postfile.postid = " + post.getId() + " AND postfile.fileid = file.id";
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(query, null);
@@ -56,17 +58,21 @@ public class FileCRUD extends SQLiteOpenHelper {
         }
         return fileList;
     }
-    public boolean insertFile(File file) {
+    public boolean insertFile(File file, Post p) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(KEY_ID,file.getId());
+        Random rand = new Random();
+        int ranNum = rand.nextInt(10000)+1;
+        contentValues.put(KEY_ID,ranNum);
         contentValues.put(KEY_NAME,file.getName());
         contentValues.put(KEY_PATH,file.getPath());
         contentValues.put(KEY_SIZE,file.getSize());
         long result = db.insert(TABLE_NAME,null ,contentValues);
+
         if(result == -1)
             return false;
         else
+            QueryData("INSERT INTO postfile VALUES (" + p.getId() +"," + ranNum + ")");
             return true;
     }
     public boolean updateFile(File file) {
@@ -76,6 +82,7 @@ public class FileCRUD extends SQLiteOpenHelper {
         values.put(KEY_PATH, file.getPath());
         values.put(KEY_SIZE, file.getSize());
         long res = db.update(TABLE_NAME, values, KEY_ID + " = ?", new String[] { String.valueOf(file.getId()) });
+
         db.close();
         if (res == 0 ){
             return false;
