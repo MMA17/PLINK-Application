@@ -12,7 +12,8 @@
         android:layout_height="65dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:backgroundTint="#FFFFFF"
+        android:src="@drawable/avatar2" />
 
     <TextView
         android:id="@+id/list_item_textView"
@@ -22,6 +23,7 @@
         android:layout_centerInParent="true"
         android:layout_marginStart="100dp"
         android:layout_marginTop="24dp"
+        android:textSize="20dp"
         android:layout_toEndOf="@+id/list_item_thumbnail"
         android:text="TextView" />
 
@@ -34,6 +36,7 @@
         android:layout_marginStart="328dp"
         android:layout_marginBottom="10dp"
         android:layout_toEndOf="@+id/list_item_textView"
+        android:backgroundTint="#FFFFFF"
         android:src="@drawable/ic_baseline_highlight_off_24"
         android:text="Xoá" />
 
