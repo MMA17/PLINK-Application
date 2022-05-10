@@ -10,6 +10,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.contract.ActivityResultContracts;
+
 import com.example.plink.HomeActivity;
 import com.example.plink.PostActivity;
 import com.example.plink.R;
@@ -17,14 +19,17 @@ import com.example.plink.R;
 import java.util.List;
 
 import components.classes.Class;
+import components.member.Member;
 
 public class ClassMemberAdapter extends BaseAdapter {
     private List<Class> listClass;
     private Context mContext;
+    private Member member;
 
-    public ClassMemberAdapter(List<Class> list, Context mContext) {
+    public ClassMemberAdapter(List<Class> list, Context mContext, Member member) {
         this.listClass = list;
         this.mContext = mContext;
+        this.member = member;
     }
 
     private class ViewHolder{
@@ -70,7 +75,9 @@ public class ClassMemberAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, PostActivity.class);
-                intent.putExtra("Class",listClass.get(i));
+                intent.putExtra("user", member);
+                intent.putExtra("class", listClass.get(i));
+                mContext.startActivity(intent);
             }
         });
         return view;

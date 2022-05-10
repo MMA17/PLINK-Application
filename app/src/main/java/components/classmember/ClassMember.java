@@ -9,8 +9,6 @@ public class ClassMember implements Serializable {
     private Class lop;
     private int isOwner; // 1 = True , 0 = False
 
-
-
     public ClassMember(Member member, components.classes.Class aClass, int isOwner) {
         this.member = member;
         this.lop = aClass;

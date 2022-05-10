@@ -55,7 +55,7 @@ public class HomeActivity extends AppCompatActivity {
         sqliHelper = new ClassMemberCRUD(HomeActivity.this);
         listClass = sqliHelper.getClassbyMember(member,HomeActivity.this);
 
-        adapter = new ClassMemberAdapter(listClass, HomeActivity.this);
+        adapter = new ClassMemberAdapter(listClass, HomeActivity.this, member);
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 

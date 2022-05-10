@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ExcerciseDetailActivity"
+    android:orientation="vertical">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/excercisedetail_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:navigationIcon="@drawable/backbutton"
+        app:title="Bài tập"
+        app:titleTextColor="@color/orange"
+
+        />
+    <ListView
+        android:id="@+id/excercisedetail_lv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="bottom|center">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nội dung bài tập"
+            android:layout_marginVertical="10dp"
+
+            />
+        <Button
+            android:id="@+id/excercise_submitbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button"
+            android:layout_marginBottom="25dp"
+            />
+    </LinearLayout>
+
+</LinearLayout>
