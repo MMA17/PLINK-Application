@@ -1,6 +1,7 @@
 package components.classmember;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.plink.HomeActivity;
+import com.example.plink.PostActivity;
 import com.example.plink.R;
 
 import java.util.List;
@@ -24,8 +26,6 @@ public class ClassMemberAdapter extends BaseAdapter {
         this.listClass = list;
         this.mContext = mContext;
     }
-
-
 
     private class ViewHolder{
         TextView tvName;
@@ -69,8 +69,8 @@ public class ClassMemberAdapter extends BaseAdapter {
         viewHolder.btn1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Toast toast = Toast.makeText(mContext, "------------" + listClass.get(i).getName() + "------------", Toast.LENGTH_SHORT);
-                toast.show();
+                Intent intent = new Intent(mContext, PostActivity.class);
+                intent.putExtra("Class",listClass.get(i));
             }
         });
         return view;

@@ -37,19 +37,6 @@ public class ClassMemberCRUD extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public List<ClassMember> getClassMemberFromClass(Class lop) {
-        List<ClassMember>  classMemberList = new ArrayList<>();
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_NAME, null, KEY_CLASSID + " = ?", new String[] { String.valueOf(lop.getId()) },null, null, null);
-        cursor.moveToFirst();
-
-        while(cursor.isAfterLast() == false) {
-            ClassMember cm = new ClassMember(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2));
-            classMemberList.add(cm);
-            cursor.moveToNext();
-        }
-        return classMemberList;
-    }
     public boolean insertClassMember(ClassMember classMember) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
