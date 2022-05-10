@@ -13,11 +13,12 @@
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable/button.xml" value="0.2595" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2265" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable/listview_selector.xml" value="0.196" />
+        <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_class_members_list.xml" value="0.25416666666666665" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_comment.xml" value="0.4" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_create_post.xml" value="0.25416666666666665" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_edit_user.xml" value="0.25416666666666665" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_excercise.xml" value="0.25416666666666665" />
-        <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_excercise_detail.xml" value="0.25416666666666665" />
+        <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_excercise_detail.xml" value="0.264" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_home.xml" value="0.264" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_post.xml" value="0.25416666666666665" />

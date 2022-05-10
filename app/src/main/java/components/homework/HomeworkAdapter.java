@@ -1,6 +1,7 @@
 package components.homework;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.plink.ExcerciseDetailActivity;
 import com.example.plink.R;
 
 import java.util.List;
@@ -17,11 +19,12 @@ import components.member.Member;
 public class HomeworkAdapter extends BaseAdapter {
     private List<Homework> homeworkList;
     private Context mContext;
-    private Member author;
-    public HomeworkAdapter(List<Homework> homeworkList, Context mContext, Member author) {
+    private Member author,member;
+    public HomeworkAdapter(List<Homework> homeworkList, Context mContext, Member author,Member member) {
         this.homeworkList = homeworkList;
         this.mContext = mContext;
         this.author = author;
+        this.member = member;
     }
 
     private class ViewHolder{
@@ -65,6 +68,17 @@ public class HomeworkAdapter extends BaseAdapter {
 
         viewHolder.excercise_content.setText(homeworkList.get(i).getContent());
         viewHolder.author_name.setText(author.getName());
+        viewHolder.excercise_createdat.setText(homeworkList.get(i).getCreatedat());
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, ExcerciseDetailActivity.class);
+                intent.putExtra("member",member);
+                intent.putExtra("excercise",homeworkList.get(i));
+
+                mContext.startActivity(intent);
+            }
+        });
         return view;
     }
 }

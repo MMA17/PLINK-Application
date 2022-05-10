@@ -26,6 +26,7 @@ import components.classes.Class;
 import components.classes.ClassAdapter;
 import components.classes.ClassCRUD;
 import components.classmember.ClassMember;
+import components.classmember.ClassMember2Adapter;
 import components.classmember.ClassMemberAdapter;
 import components.classmember.ClassMemberCRUD;
 import components.member.Member;
@@ -38,6 +39,7 @@ public class HomeActivity extends AppCompatActivity {
     private ClassMemberCRUD sqliHelper;
     private FloatingActionButton fab;
     private Member member;
+    private static int CREATECLASS = 100001;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,19 +55,27 @@ public class HomeActivity extends AppCompatActivity {
         listView = findViewById(R.id.lv_class);
 
         sqliHelper = new ClassMemberCRUD(HomeActivity.this);
-        listClass = sqliHelper.getClassbyMember(member,HomeActivity.this);
+        initClassList();
 
-        adapter = new ClassMemberAdapter(listClass, HomeActivity.this, member);
-        listView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+//                Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+
+                Intent intent = new Intent(HomeActivity.this, CreateClassActivity.class);
+                intent.putExtra("user", member);
+
+                startActivity(intent);
             }
         });
+    }
+    private void initClassList(){
+        listClass = sqliHelper.getClassbyMember(member,HomeActivity.this);
+        adapter = new ClassMemberAdapter(listClass, HomeActivity.this, member);
+        listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
     @Override
     public  boolean onCreateOptionsMenu(Menu menu){
@@ -86,6 +96,13 @@ public class HomeActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+//        Class lop = new Class(2,"","");
+        ClassMemberCRUD crud = new ClassMemberCRUD(HomeActivity.this);
+        initClassList();
+    }
 
 }
 

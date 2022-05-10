@@ -35,17 +35,21 @@ import components.member.Member;
 
 public class ClassMemberListActivity extends AppCompatActivity {
     private FloatingActionButton fab;
+    ClassMember2Adapter adapter;
+    ListView lv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_class_members_list);
-        Class lop = new Class(2,"","");
-        ListView lv = (ListView) findViewById(R.id.listview);
 
+
+        Class lop = new Class(2,"","");
         ClassMemberCRUD crud = new ClassMemberCRUD(ClassMemberListActivity.this);
         List<Member> memberList = crud.getMemberfromClass(lop);
+        adapter = new ClassMember2Adapter(memberList, ClassMemberListActivity.this, lop);
 
-        lv.setAdapter(new ClassMember2Adapter(memberList, ClassMemberListActivity.this, lop));
+        lv = (ListView) findViewById(R.id.listview);
+        lv.setAdapter(adapter);
         fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +59,17 @@ public class ClassMemberListActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Class lop = new Class(2,"","");
+        ClassMemberCRUD crud = new ClassMemberCRUD(ClassMemberListActivity.this);
+        List<Member> memberList = crud.getMemberfromClass(lop);
+        adapter = new ClassMember2Adapter(memberList, ClassMemberListActivity.this, lop);
+        lv.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
 
 }
