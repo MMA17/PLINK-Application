@@ -14,7 +14,7 @@
             android:exported="true" />
         <activity
             android:name=".StudyDocumentActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".CreateClassActivity"
             android:exported="true" />
@@ -56,6 +56,12 @@
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />
+        <activity
+            android:name=".AddClassMemberActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ClassMemberListActivity"
+            android:exported="true" />
 
         <meta-data
             android:name="preloaded_fonts"

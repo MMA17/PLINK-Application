@@ -6,6 +6,10 @@
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable-v24/borderview.xml" value="0.2595" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable-v24/borderviewtxt.xml" value="0.2595" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2265" />
+<<<<<<< HEAD
+=======
+        <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable/border.xml" value="0.196" />
+>>>>>>> 8b15893ff50086732ec13e3191607cee403f550c
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable/bordertextview.xml" value="0.2595" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable/button.xml" value="0.2595" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2265" />

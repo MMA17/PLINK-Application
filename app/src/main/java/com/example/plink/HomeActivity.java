@@ -26,6 +26,7 @@ import components.classes.Class;
 import components.classes.ClassAdapter;
 import components.classes.ClassCRUD;
 import components.classmember.ClassMember;
+import components.classmember.ClassMember2Adapter;
 import components.classmember.ClassMemberAdapter;
 import components.classmember.ClassMemberCRUD;
 import components.member.Member;
@@ -54,11 +55,7 @@ public class HomeActivity extends AppCompatActivity {
         listView = findViewById(R.id.lv_class);
 
         sqliHelper = new ClassMemberCRUD(HomeActivity.this);
-        listClass = sqliHelper.getClassbyMember(member,HomeActivity.this);
-
-        adapter = new ClassMemberAdapter(listClass, HomeActivity.this, member);
-        listView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
+        initClassList();
 
 //        sqliHelper.QueryData("create table if not exists class(id integer primary key, name text, note text)");
 //        Class lop = new Class(1002, "Kỹ thuật giấu tin", "test");
@@ -75,9 +72,15 @@ public class HomeActivity extends AppCompatActivity {
                 Intent intent = new Intent(HomeActivity.this, CreateClassActivity.class);
                 intent.putExtra("user", member);
 
-                startActivityForResult(intent);
+                startActivity(intent);
             }
         });
+    }
+    private void initClassList(){
+        listClass = sqliHelper.getClassbyMember(member,HomeActivity.this);
+        adapter = new ClassMemberAdapter(listClass, HomeActivity.this, member);
+        listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
     @Override
     public  boolean onCreateOptionsMenu(Menu menu){
@@ -96,6 +99,13 @@ public class HomeActivity extends AppCompatActivity {
             startActivity(i);
         }
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+//        Class lop = new Class(2,"","");
+        ClassMemberCRUD crud = new ClassMemberCRUD(HomeActivity.this);
+        initClassList();
     }
 }
 
