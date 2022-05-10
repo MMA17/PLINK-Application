@@ -64,7 +64,7 @@ public class ClassMemberAdapter extends BaseAdapter {
             viewHolder.btn2 = view.findViewById(R.id.button2);
             viewHolder.btn3 = view.findViewById(R.id.button3);
             view.setTag(viewHolder);
-            //view.setBackground(mContext.getDrawable(R.drawable.listview_selector));
+            view.setBackground(mContext.getDrawable(R.drawable.listview_selector));
         }
         else{
           viewHolder = (ViewHolder) view.getTag();

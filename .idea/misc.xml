@@ -3,17 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable-v24/border.xml" value="0.196" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable-v24/borderview.xml" value="0.2595" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable-v24/borderviewtxt.xml" value="0.2595" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2265" />
+<<<<<<< HEAD
+=======
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable/border.xml" value="0.196" />
+>>>>>>> 8b15893ff50086732ec13e3191607cee403f550c
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable/bordertextview.xml" value="0.2595" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable/button.xml" value="0.2595" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2265" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_comment.xml" value="0.4" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_edit_user.xml" value="0.25416666666666665" />
-        <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_home.xml" value="0.264" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_post.xml" value="0.25416666666666665" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_post_detail.xml" value="0.264" />
@@ -25,28 +26,21 @@
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/fragment_first.xml" value="0.25416666666666665" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/fragment_second.xml" value="0.25416666666666665" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/row_comment.xml" value="0.264" />
-        <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/activity_add_class_member.xml" value="0.23489583333333333" />
-        <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/activity_class_members_list.xml" value="0.23489583333333333" />
-        <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/activity_create_homework.xml" value="0.1453125" />
-        <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/activity_create_post.xml" value="0.1453125" />
-        <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/activity_home.xml" value="0.23489583333333333" />
-        <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/activity_main.xml" value="0.23489583333333333" />
-        <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/activity_post.xml" value="0.18703703703703703" />
-        <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/activity_post_detail.xml" value="0.23489583333333333" />
-        <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/activity_study_document.xml" value="0.23489583333333333" />
-        <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/fragment_first.xml" value="0.23489583333333333" />
-        <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/fragment_second.xml" value="0.23489583333333333" />
-        <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/home_item.xml" value="0.23489583333333333" />
-        <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/post_item.xml" value="0.23489583333333333" />
-        <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/row_comment.xml" value="0.23489583333333333" />
         <entry key="..\:/MobileAppDev/PLINK-Application/app/src/main/res/drawable-v24/listview_selector.xml" value="0.1115" />
+        <entry key="..\:/MobileAppDev/PLINK-Application/app/src/main/res/drawable/listview_selector.xml" value="0.1975" />
+        <entry key="..\:/MobileAppDev/PLINK-Application/app/src/main/res/drawable/listview_shadow.xml" value="0.1975" />
         <entry key="..\:/MobileAppDev/PLINK-Application/app/src/main/res/layout/activity_comment.xml" value="0.17831813576494426" />
         <entry key="..\:/MobileAppDev/PLINK-Application/app/src/main/res/layout/activity_create_class.xml" value="0.33" />
+        <entry key="..\:/MobileAppDev/PLINK-Application/app/src/main/res/layout/activity_create_homework.xml" value="0.18802083333333333" />
         <entry key="..\:/MobileAppDev/PLINK-Application/app/src/main/res/layout/activity_create_post.xml" value="0.29936594202898553" />
         <entry key="..\:/MobileAppDev/PLINK-Application/app/src/main/res/layout/activity_edit_user.xml" value="0.36666666666666664" />
-        <entry key="..\:/MobileAppDev/PLINK-Application/app/src/main/res/layout/activity_post.xml" value="0.182370820668693" />
+        <entry key="..\:/MobileAppDev/PLINK-Application/app/src/main/res/layout/activity_home.xml" value="0.302536231884058" />
+        <entry key="..\:/MobileAppDev/PLINK-Application/app/src/main/res/layout/activity_post.xml" value="0.25" />
         <entry key="..\:/MobileAppDev/PLINK-Application/app/src/main/res/layout/activity_post_detail.xml" value="0.182370820668693" />
+        <entry key="..\:/MobileAppDev/PLINK-Application/app/src/main/res/layout/activity_study_document.xml" value="0.18802083333333333" />
         <entry key="..\:/MobileAppDev/PLINK-Application/app/src/main/res/layout/home_item.xml" value="0.25" />
+        <entry key="..\:/MobileAppDev/PLINK-Application/app/src/main/res/layout/post_item.xml" value="0.17300724637681159" />
+        <entry key="..\:/MobileAppDev/PLINK-Application/app/src/main/res/layout/row_comment.xml" value="0.17300724637681159" />
         <entry key="..\:/Users/Hoang Viet/AndroidStudioProjects/PLINK-Application/app/src/main/res/drawable-v24/borderviewtxt.xml" value="0.1925" />
         <entry key="..\:/Users/Hoang Viet/AndroidStudioProjects/PLINK-Application/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1925" />
         <entry key="..\:/Users/Hoang Viet/AndroidStudioProjects/PLINK-Application/app/src/main/res/drawable/button.xml" value="0.1925" />
