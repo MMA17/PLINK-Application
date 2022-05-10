@@ -41,3 +41,4 @@ public class Class implements Serializable {
         this.note = note;
     }
 }
+

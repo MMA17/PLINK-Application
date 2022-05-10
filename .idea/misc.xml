@@ -25,10 +25,20 @@
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/fragment_first.xml" value="0.25416666666666665" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/fragment_second.xml" value="0.25416666666666665" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/row_comment.xml" value="0.264" />
+        <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/activity_add_class_member.xml" value="0.23489583333333333" />
+        <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/activity_class_members_list.xml" value="0.23489583333333333" />
         <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/activity_create_homework.xml" value="0.1453125" />
         <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/activity_create_post.xml" value="0.1453125" />
         <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/activity_home.xml" value="0.23489583333333333" />
         <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/activity_main.xml" value="0.23489583333333333" />
+        <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/activity_post.xml" value="0.18703703703703703" />
+        <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/activity_post_detail.xml" value="0.23489583333333333" />
+        <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/activity_study_document.xml" value="0.23489583333333333" />
+        <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/fragment_first.xml" value="0.23489583333333333" />
+        <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/fragment_second.xml" value="0.23489583333333333" />
+        <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/home_item.xml" value="0.23489583333333333" />
+        <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/post_item.xml" value="0.23489583333333333" />
+        <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/row_comment.xml" value="0.23489583333333333" />
         <entry key="..\:/MobileAppDev/PLINK-Application/app/src/main/res/drawable-v24/listview_selector.xml" value="0.1115" />
         <entry key="..\:/MobileAppDev/PLINK-Application/app/src/main/res/layout/activity_comment.xml" value="0.17831813576494426" />
         <entry key="..\:/MobileAppDev/PLINK-Application/app/src/main/res/layout/activity_create_class.xml" value="0.33" />
