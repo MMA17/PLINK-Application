@@ -3,7 +3,11 @@ package com.example.plink;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -80,7 +84,21 @@ public class CreatePostActivity extends AppCompatActivity {
                 FileCRUD fileCrud = new FileCRUD(CreatePostActivity.this);
                 p = crud.insertPost(p);
                 if (p != null && fileCrud.insertFile(f,p)) {
+                    //Show Notification
+                    Notification builder = new Notification.Builder(getApplicationContext())
+                            .setContentTitle(p.getTitle())
+                            .setContentText(p.getContent())
+                            .setSmallIcon(R.drawable.ic_notification)
+                            .setColor(Color.YELLOW)
+                            .build();
+
+                    NotificationManager nm = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                    nm.notify(1, builder);
+
                     Toast.makeText(CreatePostActivity.this, "Tạo bài đăng thành công!", Toast.LENGTH_LONG).show();
+
+
+
                     Intent returnIntent = new Intent();
                     setResult(Activity.RESULT_OK, returnIntent);
                     finish();

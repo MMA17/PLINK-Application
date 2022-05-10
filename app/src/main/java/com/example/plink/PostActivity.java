@@ -44,7 +44,7 @@ public class PostActivity extends AppCompatActivity {
         sqliHelper = new PostCRUD(PostActivity.this);
         listPost = sqliHelper.getPostByClass(c);
 
-        adapter = new PostAdapter(listPost, PostActivity.this, member);
+        adapter = new PostAdapter(listPost, PostActivity.this, member, c);
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
@@ -70,9 +70,6 @@ public class PostActivity extends AppCompatActivity {
                 finish();
                 startActivity(getIntent());
             }
-//            if (resultCode == Activity.RESULT_CANCELED) {
-//                Toast.makeText(this, "Error", Toast.LENGTH_LONG).show();
-//            }
         }
     }
 }
