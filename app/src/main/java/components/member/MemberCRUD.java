@@ -29,7 +29,7 @@ public class MemberCRUD extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String create_students_table ="CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "NAME TEXT,PHONE TEXT,PASSWORD TEXT, ROLE TEXT, DOB DATE)";
+                "NAME TEXT,ROLE TEXT,DOB TEXT, PHONE TEXT, PASSWORD TEXT,EMAIL TEXT)";
         db.execSQL(create_students_table);
 
     }

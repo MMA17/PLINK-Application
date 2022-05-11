@@ -41,7 +41,7 @@
         android:id="@+id/btn_add_post"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="10dp"
         android:backgroundTint="@color/white"
         android:src="@drawable/plus2"
         app:backgroundTint="@color/white_dark"
