@@ -8,7 +8,7 @@ public class Homework implements Serializable {
     private String content;
     private String deadline;
     private int classid;
-    private String createdat;
+    private String create_at;
     public Homework(){
 
     }
@@ -19,7 +19,7 @@ public class Homework implements Serializable {
         this.content = content;
         this.deadline = deadline;
         this.classid = classid;
-        this.createdat = createdat;
+        this.create_at = createdat;
     }
 
     public int getId() {
@@ -62,11 +62,11 @@ public class Homework implements Serializable {
         this.classid = classid;
     }
 
-    public String getCreatedat() {
-        return createdat;
+    public String getCreate_at() {
+        return create_at;
     }
 
-    public void setCreatedat(String createdat) {
-        this.createdat = createdat;
+    public void setCreate_at(String createdat) {
+        this.create_at = createdat;
     }
 }

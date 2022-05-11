@@ -49,17 +49,13 @@ public class ExcerciseActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent1 = new Intent(ExcerciseActivity.this,CreateHomeworkActivity.class);
                 intent1.putExtra("class",c);
-                startActivityForResult(intent1,CREATE_HOMEWORK);
+                startActivity(intent1);
             }
         });
 
         ClassMemberCRUD classMemberCRUD = new ClassMemberCRUD(this);
         author = classMemberCRUD.getOwnerfromClass(c.getId());
-        homeworkList = new HomeworkCRUD(this).getHomeworkByClass(c);
-
-        adapter = new HomeworkAdapter(homeworkList,ExcerciseActivity.this,author,member);
-        listView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
+        init();
 
     }
     @Override
@@ -71,5 +67,19 @@ public class ExcerciseActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        init();
+    }
+
+    private void init(){
+        homeworkList = new HomeworkCRUD(this).getHomeworkByClass(c);
+
+        adapter = new HomeworkAdapter(homeworkList,ExcerciseActivity.this,author,member);
+        listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
 }

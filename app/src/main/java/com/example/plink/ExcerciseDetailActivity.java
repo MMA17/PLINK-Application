@@ -35,7 +35,7 @@ public class ExcerciseDetailActivity extends AppCompatActivity {
     private void initData() {
         author = new HomeworkCRUD(this).getAuthorHomework(excercise);
         authorname.setText(author.getName());
-        createdat.setText(excercise.getCreatedat());
+        createdat.setText(excercise.getCreate_at());
         content.setText(excercise.getContent());
         toolbar.setTitle(excercise.getTitle());
     }

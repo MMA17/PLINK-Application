@@ -89,7 +89,35 @@ public class FileCRUD extends SQLiteOpenHelper {
         }
         return true;
     }
+    public List<File> getFileFromListPost(List<Post> listpost){
+        SQLiteDatabase db = this.getReadableDatabase();
+        List<File> fileList = new ArrayList<>();
+        List<Integer> listFileId = new ArrayList<Integer>();
+        for (Post p:listpost){
+            int id = p.getId();
+            String query = "SELECT fileid from postfile WHERE postid ="+id;
+            Cursor cursor = db.rawQuery(query, null);
+            cursor.moveToFirst();
+            while (cursor.isAfterLast() == false){
+                Integer fileid = cursor.getInt(0);
+                System.out.println(fileid+"Nhin vao day nayyyyyyyyy");
+                listFileId.add(fileid);
+                cursor.moveToNext();
 
+            }
+            for(Integer i:listFileId){
+                String query1 = "SELECT * FROM file where id =" + i;
+                Cursor cursor1 = db.rawQuery(query1,null);
+                cursor1.moveToFirst();
+                while(cursor1.isAfterLast() == false) {
+                    File file = new File(cursor1.getInt(0), cursor1.getString(1), cursor1.getString(2), cursor1.getInt(3));
+                    fileList.add(file);
+                    cursor1.moveToNext();
+                }
+            }
+        }
+    return fileList;
+    }
     public boolean deleteFile(File file) {
         SQLiteDatabase db = this.getWritableDatabase();
         long res = db.delete(TABLE_NAME, KEY_ID + " = ?", new String[] { String.valueOf(file.getId()) });
