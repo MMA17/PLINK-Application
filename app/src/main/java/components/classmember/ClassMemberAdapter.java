@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.activity.result.contract.ActivityResultContracts;
 
+import com.example.plink.ExcerciseActivity;
 import com.example.plink.HomeActivity;
 import com.example.plink.PostActivity;
 import com.example.plink.R;
@@ -74,11 +75,18 @@ public class ClassMemberAdapter extends BaseAdapter {
         viewHolder.btn1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                Toast toast = Toast.makeText(mContext, "------------" + listClass.get(i).getName() + "------------", Toast.LENGTH_SHORT);
-                toast.show();
                 Intent intent = new Intent(mContext, PostActivity.class);
                 intent.putExtra("user", member);
                 intent.putExtra("class", listClass.get(i));
+                mContext.startActivity(intent);
+            }
+        });
+        viewHolder.btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, ExcerciseActivity.class);
+                intent.putExtra("member",member);
+                intent.putExtra("class",listClass.get(i));
                 mContext.startActivity(intent);
             }
         });

@@ -1,4 +1,3 @@
-
 package components.classmember;
 
 import android.content.ContentValues;
@@ -102,6 +101,18 @@ public class ClassMemberCRUD extends SQLiteOpenHelper {
         }
         return mem;
 
+    }
+    public Member getOwnerfromClass(int classid){
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT * from classmember where isOwner = ? and classid = ?", new String[]{"1",String.valueOf(classid)});
+        c.moveToFirst();
+        int memid = c.getInt(0);
+        Cursor cursor1 = db.query("member", null, "id" + "= ?", new String[]{ String .valueOf(memid)}, null, null, null );
+        cursor1.moveToFirst();
+        Member member = new Member(cursor1.getInt(0), cursor1.getString(1), cursor1.getString(2), cursor1.getString(3),
+                cursor1.getString(4),cursor1.getString(5),cursor1.getString(6));
+        return member;
     }
 }
 

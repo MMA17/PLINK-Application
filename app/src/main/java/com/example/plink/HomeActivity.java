@@ -57,11 +57,6 @@ public class HomeActivity extends AppCompatActivity {
         sqliHelper = new ClassMemberCRUD(HomeActivity.this);
         initClassList();
 
-//        sqliHelper.QueryData("create table if not exists class(id integer primary key, name text, note text)");
-//        Class lop = new Class(1002, "Kỹ thuật giấu tin", "test");
-//        sqliHelper.insertClass(lop);
-
-
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,6 +95,7 @@ public class HomeActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -107,5 +103,6 @@ public class HomeActivity extends AppCompatActivity {
         ClassMemberCRUD crud = new ClassMemberCRUD(HomeActivity.this);
         initClassList();
     }
+
 }
 
