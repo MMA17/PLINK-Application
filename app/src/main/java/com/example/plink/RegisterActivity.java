@@ -43,7 +43,7 @@ public class RegisterActivity extends AppCompatActivity  {
                     //Tai khoan chua co trong DB
                     //System.out.println(memberCURD.getMemberbyPhone(user.getPhone());
                     System.out.println("Trong if");
-
+                    user.setRole("user");
                     memberCURD.insertMember(user);
                     Toast.makeText(RegisterActivity.this,"Đăng kí thành công",Toast.LENGTH_LONG).show();
                     Intent i = new Intent();
