@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import components.classes.Class;
 import java.util.Date;
@@ -37,24 +39,29 @@ public class CreateHomeworkActivity extends AppCompatActivity {
                 String homework_content = ((EditText) findViewById(R.id.txtContent)).getText().toString();
                 Date deadline = Calendar.getInstance().getTime();
                 System.out.println(deadline);
-                int classID = 1;
+
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+                LocalDateTime now = LocalDateTime.now();
+
 
                 Homework h = new Homework();
                 h.setTitle(homework_title);
                 h.setContent(homework_content);
                 h.setDeadline(deadline.toString());
-                h.setClassid(classID);
+                h.setCreate_at(dtf.format(now));
+                h.setClassid(c.getId());
 
                 HomeworkCRUD crud = new HomeworkCRUD(CreateHomeworkActivity.this);
                 if (crud.insertHomework(h)){
                     Toast.makeText(CreateHomeworkActivity.this,"Tạo bài tập thành công",Toast.LENGTH_LONG).show();
-                    Intent returnIntent = new Intent();
-                    setResult(Activity.RESULT_OK, returnIntent);
+//                    Intent returnIntent = new Intent();
+//                    setResult(Activity.RESULT_OK, returnIntent);
                     finish();
                 }
                 else{
                     Toast.makeText(CreateHomeworkActivity.this, "Tạo thất bại",Toast.LENGTH_LONG).show();
                 }
+
             }
         });
     }

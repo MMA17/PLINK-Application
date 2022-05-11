@@ -16,6 +16,7 @@ import com.example.plink.ExcerciseActivity;
 import com.example.plink.HomeActivity;
 import com.example.plink.PostActivity;
 import com.example.plink.R;
+import com.example.plink.StudyDocumentActivity;
 
 import java.util.List;
 
@@ -85,6 +86,15 @@ public class ClassMemberAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, ExcerciseActivity.class);
+                intent.putExtra("member",member);
+                intent.putExtra("class",listClass.get(i));
+                mContext.startActivity(intent);
+            }
+        });
+        viewHolder.btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, StudyDocumentActivity.class);
                 intent.putExtra("member",member);
                 intent.putExtra("class",listClass.get(i));
                 mContext.startActivity(intent);
