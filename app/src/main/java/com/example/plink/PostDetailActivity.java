@@ -46,6 +46,7 @@ public class PostDetailActivity extends AppCompatActivity {
         member = (Member) i.getSerializableExtra("user");
         post = (Post) i.getSerializableExtra("post");
         String authorName = i.getStringExtra("authorName");
+        String pos = i.getStringExtra("position");
         ImageView avatar = findViewById(R.id.PostAvatar);
         // Set avatar
         avatar.setImageResource(R.drawable.avatar2);
@@ -57,7 +58,7 @@ public class PostDetailActivity extends AppCompatActivity {
         author_name.setText(authorName);
 
         TextView position = (TextView) findViewById(R.id.position);
-        position.setText("Giáo viên");
+        position.setText(pos);
 
         TextView title = (TextView) findViewById(R.id.Post_title);
         title.setText(post.getTitle());

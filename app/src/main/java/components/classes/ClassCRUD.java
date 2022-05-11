@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import components.file.File;
+import components.post.Post;
 
 public class ClassCRUD extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "Plink_database.db";
@@ -77,6 +78,7 @@ public class ClassCRUD extends SQLiteOpenHelper {
         }
 
     }
+
     public boolean updateClass(Class lop) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
