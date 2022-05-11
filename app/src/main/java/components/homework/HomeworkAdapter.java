@@ -68,7 +68,7 @@ public class HomeworkAdapter extends BaseAdapter {
 
         viewHolder.excercise_content.setText(homeworkList.get(i).getContent());
         viewHolder.author_name.setText(author.getName());
-        viewHolder.excercise_createdat.setText(homeworkList.get(i).getCreatedat());
+        viewHolder.excercise_createdat.setText(homeworkList.get(i).getCreate_at());
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -76,6 +76,7 @@ public class PostCRUD extends SQLiteOpenHelper {
         return p;
     }
 
+
     public List<Post> getAll(Class lop){
         List<Post> list = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();

@@ -20,6 +20,7 @@ public class HomeworkCRUD extends SQLiteOpenHelper {
     private static final String KEY_TITLE = "title";
     private static final String KEY_CONTENT = "content";
     private static final String KEY_DEADLINE = "deadline";
+    private static final String KEY_CREATEAT = "created_at";
     private static final String KEY_CLASSID = "classid";
 
     public HomeworkCRUD(Context context){
@@ -30,7 +31,7 @@ public class HomeworkCRUD extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         System.out.println("Create table");
         String createTable = "CREATE TABLE " + TABLE_NAME + " ( id INTEGER PRIMARY KEY AUTOINCREMENT," +
-                " title TEXT, content TEXT, deadline DATE, classid INTEGER)";
+                " title TEXT, content TEXT, deadline DATE,created_at DATE, classid INTEGER)";
         db.execSQL(createTable);
     }
 
@@ -46,6 +47,7 @@ public class HomeworkCRUD extends SQLiteOpenHelper {
         cv.put(KEY_TITLE, homework.getTitle());
         cv.put(KEY_CONTENT, homework.getContent());
         cv.put(KEY_DEADLINE, homework.getDeadline());
+        cv.put(KEY_CREATEAT, homework.getCreate_at());
         cv.put(KEY_CLASSID, homework.getClassid());
         long res = db.insert(TABLE_NAME, null, cv);
         if (res == -1)

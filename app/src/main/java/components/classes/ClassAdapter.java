@@ -67,7 +67,6 @@ public class ClassAdapter extends BaseAdapter {
                 toast.show();
             }
         });
-
         return view;
     }
 }
