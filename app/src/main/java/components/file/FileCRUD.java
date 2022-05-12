@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import components.homework.Homework;
 import components.member.Member;
 import components.post.Post;
 
@@ -130,5 +131,23 @@ public class FileCRUD extends SQLiteOpenHelper {
     public void QueryData (String sql){
         SQLiteDatabase database = getWritableDatabase();
         database.execSQL(sql);
+    }
+    public int insertExcerciseFile(File file, Homework p) {
+        // return FileExxcersie
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        Random rand = new Random();
+        int ranNum = rand.nextInt(10000)+1;
+        contentValues.put(KEY_ID,ranNum);
+        contentValues.put(KEY_NAME,file.getName());
+        contentValues.put(KEY_PATH,file.getPath());
+        contentValues.put(KEY_SIZE,file.getSize());
+        long result = db.insert(TABLE_NAME,null ,contentValues);
+
+        if(result == -1)
+            return -1;
+        else
+            QueryData("INSERT INTO excersiefile VALUES (" + p.getId() +"," + ranNum + ")");
+        return ranNum;
     }
 }
