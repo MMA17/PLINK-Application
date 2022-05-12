@@ -100,7 +100,6 @@ public class FileCRUD extends SQLiteOpenHelper {
             cursor.moveToFirst();
             while (cursor.isAfterLast() == false){
                 Integer fileid = cursor.getInt(0);
-                System.out.println(fileid+"Nhin vao day nayyyyyyyyy");
                 listFileId.add(fileid);
                 cursor.moveToNext();
 
