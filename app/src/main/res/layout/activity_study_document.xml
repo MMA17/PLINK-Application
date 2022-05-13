@@ -6,23 +6,20 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".StudyDocumentActivity">
-
-    <TextView
+    <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Tài liệu học tập"
-        android:textAlignment="center"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:textColor="@color/orange"
-        android:textSize="25dp"
-
+        android:id="@+id/document_toolbar"
+        android:navigationIcon="@drawable/backbutton"
+        android:title="Tài liệu học tập"
+        android:titleTextColor="@color/orange"
         />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        android:layout_margin="15dp"
+        android:layout_margin="18dp"
         >
 
 <!--        <Button-->
