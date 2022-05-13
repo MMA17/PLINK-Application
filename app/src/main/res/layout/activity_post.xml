@@ -5,20 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PostActivity">
-
-    <TextView
-        android:id="@+id/textViewThongBao"
-        android:layout_width="169dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="16dp"
-        android:text="Thông báo"
-        android:textColor="@color/orange"
-        android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.028"
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/post_toolbar"
+        app:title="Bài đăng"
+        app:titleTextColor="@color/orange"
+        app:navigationIcon="@drawable/backbutton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        />
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
@@ -59,7 +55,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.495" />
+        app:layout_constraintTop_toBottomOf="@+id/post_toolbar"
+        app:layout_constraintVertical_bias="0.495"
+        android:divider="#fff"
+        android:dividerHeight="12dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
