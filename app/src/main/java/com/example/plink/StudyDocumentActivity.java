@@ -1,13 +1,13 @@
 package com.example.plink;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.view.MenuItem;
 import android.widget.ListView;
 
 import java.util.List;
@@ -31,7 +31,8 @@ public class StudyDocumentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_study_document);
-
+        Toolbar toolbar = findViewById(R.id.document_toolbar);
+        setSupportActionBar(toolbar);
         filecrud = new FileCRUD(StudyDocumentActivity.this);
         postcrud = new PostCRUD(StudyDocumentActivity.this);
 
@@ -74,5 +75,15 @@ public class StudyDocumentActivity extends AppCompatActivity {
 //            }
 //        });
 
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+        if(id == android.R.id.home){
+            onBackPressed();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

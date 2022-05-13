@@ -77,7 +77,6 @@ public class ExcerciseActivity extends AppCompatActivity {
 
     private void init(){
         homeworkList = new HomeworkCRUD(this).getHomeworkByClass(c);
-
         adapter = new HomeworkAdapter(homeworkList,ExcerciseActivity.this,author,member);
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();

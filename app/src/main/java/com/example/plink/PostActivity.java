@@ -1,11 +1,13 @@
 package com.example.plink;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -35,6 +37,8 @@ public class PostActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post);
+        Toolbar toolbar = findViewById(R.id.post_toolbar);
+        setSupportActionBar(toolbar);
 
         Intent i = getIntent();
         member = (Member) i.getSerializableExtra("user");
@@ -43,7 +47,7 @@ public class PostActivity extends AppCompatActivity {
         listView = findViewById(R.id.lv_post);
         sqliHelper = new PostCRUD(PostActivity.this);
         listPost = sqliHelper.getPostByClass(c);
-
+        System.out.println(listPost.size() + "~~");
         adapter = new PostAdapter(listPost, PostActivity.this, member, c);
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
@@ -71,5 +75,16 @@ public class PostActivity extends AppCompatActivity {
                 startActivity(getIntent());
             }
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+        if(id == android.R.id.home){
+            onBackPressed();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
