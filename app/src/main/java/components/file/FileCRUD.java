@@ -76,6 +76,24 @@ public class FileCRUD extends SQLiteOpenHelper {
             QueryData("INSERT INTO postfile VALUES (" + p.getId() +"," + ranNum + ")");
             return true;
     }
+    public boolean insertFileToExercise(File file, Homework h){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues ctValues = new ContentValues();
+        Random rand = new Random();
+        int ranN = rand.nextInt(10000)+1;
+        ctValues.put(KEY_ID,ranN);
+        ctValues.put(KEY_NAME,file.getName());
+        ctValues.put(KEY_PATH,file.getPath());
+        ctValues.put(KEY_SIZE,file.getSize());
+        long result = db.insert(TABLE_NAME,null ,ctValues);
+
+        if(result == -1)
+            return false;
+        else
+            QueryData("INSERT INTO excersiefile VALUES (" + h.getId() +"," + ranN + ")");
+            return true;
+
+    }
     public boolean updateFile(File file) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -101,7 +119,6 @@ public class FileCRUD extends SQLiteOpenHelper {
             cursor.moveToFirst();
             while (cursor.isAfterLast() == false){
                 Integer fileid = cursor.getInt(0);
-                System.out.println(fileid+"Nhin vao day nayyyyyyyyy");
                 listFileId.add(fileid);
                 cursor.moveToNext();
 
