@@ -29,6 +29,12 @@ public class MemberAdapter extends BaseAdapter {
         this.ct = ct;
         this.lop = lop;
     }
+
+    public MemberAdapter(List<Member> memberList, Context ct) {
+        this.memberList = memberList;
+        this.ct = ct;
+    }
+
     public class ViewHolder{
         TextView tvName, tvPhone;
         ImageView imgView;
