@@ -8,6 +8,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.util.Date;
+
+import components.member.Member;
+
 public class MemberSubmittedCRUD extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "Plink_database.db";
     private static final String TABLE_NAME = "membersubmitted";
@@ -58,8 +66,33 @@ public class MemberSubmittedCRUD extends SQLiteOpenHelper {
         c.moveToFirst();
         if(c.getCount() > 0){
             //đã nộp bài
+
             return true;
         }
         return false;
+    }
+    public MemberSubmitted getMemberSumit(MemberSubmitted ms){
+        //Sau khi kiểm tra học sinh đã nộp bài bằng memID và excerciseID thì sẽ get Timesubmit
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT * from membersubmitted where memberid=? and excersieid=?",
+                new String[]{String.valueOf(ms.getMemberid()),String.valueOf(ms.getExcerciseid())});
+        c.moveToFirst();
+        ms.setTimesubmit(c.getString(3));
+        ms.setFileid(c.getInt(2));
+        return ms;
+    }
+    public void checkDeadline(MemberSubmitted ms, String deadline){
+        String timesubmit = ms.getTimesubmit();
+        //DateTimeFormatter dtf =  DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        System.out.println("Checkdeadline");
+        try {
+            System.out.println("Timesub " +timesubmit);
+            System.out.println(sdf.parse(deadline).before(sdf.parse(timesubmit)));
+        } catch (ParseException e) {
+            System.out.println(e);
+            e.printStackTrace();
+        }
     }
 }
