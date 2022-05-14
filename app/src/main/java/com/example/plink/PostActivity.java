@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -47,11 +48,14 @@ public class PostActivity extends AppCompatActivity {
         listView = findViewById(R.id.lv_post);
         sqliHelper = new PostCRUD(PostActivity.this);
         listPost = sqliHelper.getPostByClass(c);
-        System.out.println(listPost.size() + "~~");
+
         adapter = new PostAdapter(listPost, PostActivity.this, member, c);
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
-
+        if(listPost.size() <= 0){
+            TextView textView = findViewById(R.id.textViewPost);
+            textView.setText("Chưa có bài đăng");
+        }
         ImageView addPost = (ImageView) findViewById(R.id.btn_add_post);
         addPost.setOnClickListener(new View.OnClickListener() {
             @Override

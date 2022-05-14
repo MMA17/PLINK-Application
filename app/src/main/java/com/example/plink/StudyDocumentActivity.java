@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -44,7 +45,11 @@ public class StudyDocumentActivity extends AppCompatActivity {
         adapter = new FileAdapter(file,StudyDocumentActivity.this);
         lv.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+        if(file.size() <= 0){
+            TextView textView = findViewById(R.id.textViewDocument);
+            textView.setText("Chưa có tài liệu nào");
 
+        }
 
 
 //        Button btnDSlop = (Button) findViewById(R.id.buttons1);

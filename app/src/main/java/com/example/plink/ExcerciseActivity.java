@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -38,7 +39,7 @@ public class ExcerciseActivity extends AppCompatActivity {
         Intent intent = getIntent();
         member = (Member) intent.getSerializableExtra("member");
         c = (Class) intent.getSerializableExtra("class");
-        System.out.println("Classid= "+c.getId());
+
 
         Toolbar toolbar = findViewById(R.id.excercise_toolbar);
         setSupportActionBar(toolbar);
@@ -80,5 +81,9 @@ public class ExcerciseActivity extends AppCompatActivity {
         adapter = new HomeworkAdapter(homeworkList,ExcerciseActivity.this,author,member);
         listView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+        if(homeworkList.size()<=0){
+            TextView textView = findViewById(R.id.textViewExcercise);
+            textView.setText("Chưa có bài tập nào");
+        }
     }
 }
