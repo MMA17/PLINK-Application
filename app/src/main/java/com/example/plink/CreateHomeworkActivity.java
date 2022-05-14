@@ -45,7 +45,7 @@ public class CreateHomeworkActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String homework_title = ((EditText) findViewById(R.id.txtTitle)).getText().toString();
                 String homework_content = ((EditText) findViewById(R.id.txtContent)).getText().toString();
-                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
                 LocalDateTime now = LocalDateTime.now();
 
                 // Homework info
@@ -96,7 +96,7 @@ public class CreateHomeworkActivity extends AppCompatActivity {
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month = month +1;
                 String date = makeDateString(day,month,year);
-
+                btnDeadline.setText(date);
             }
         };
         Calendar cal = Calendar.getInstance();

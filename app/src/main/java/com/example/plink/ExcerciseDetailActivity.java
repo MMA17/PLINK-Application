@@ -30,7 +30,7 @@ public class ExcerciseDetailActivity extends AppCompatActivity {
     private Homework excercise;
     private MemberSubmitted memberSubmitted;
     private MemberSubmittedCRUD memberSubmittedCRUD;
-    private TextView authorname,createdat,content,deadline;
+    private TextView authorname,createdat,content,deadline,checksubmit;
     private Toolbar toolbar;
     private Button btnSubmit;
     private EditText url;
@@ -48,6 +48,7 @@ public class ExcerciseDetailActivity extends AppCompatActivity {
         deadline = findViewById(R.id.excercisedetail_deadline);
         url = findViewById(R.id.urlExcercise);
         btnSubmit = findViewById(R.id.excercise_submitbtn);
+        checksubmit = findViewById(R.id.checksubmit_excercisedetail);
         setSupportActionBar(toolbar);
         initData();
 
@@ -61,7 +62,7 @@ public class ExcerciseDetailActivity extends AppCompatActivity {
                     Toast.makeText(ExcerciseDetailActivity.this,"Điền URL đi đã!",Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyyy HH:mm:ss");
                     LocalDateTime now = LocalDateTime.now();
 
                     File f = new File();
@@ -108,9 +109,14 @@ public class ExcerciseDetailActivity extends AppCompatActivity {
             btnSubmit.setEnabled(false);
             btnSubmit.setText("Đã nộp bài");
             memberSubmitted = memberSubmittedCRUD.getMemberSumit(memberSubmitted);
-            memberSubmittedCRUD.checkDeadline(memberSubmitted,excercise.getDeadline());
+            if(memberSubmittedCRUD.checkDeadline(memberSubmitted,excercise.getDeadline())){
+                checksubmit.setText("Đã nộp");
+            }else{
+                checksubmit.setText("Nộp muộn");
+            }
         }
         else{
+            checksubmit.setText("Chưa hoàn thành");
             btnSubmit.setEnabled(true);
         }
 

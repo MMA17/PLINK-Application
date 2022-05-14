@@ -82,17 +82,20 @@ public class MemberSubmittedCRUD extends SQLiteOpenHelper {
         ms.setFileid(c.getInt(2));
         return ms;
     }
-    public void checkDeadline(MemberSubmitted ms, String deadline){
+    public boolean checkDeadline(MemberSubmitted ms, String deadline){
         String timesubmit = ms.getTimesubmit();
         //DateTimeFormatter dtf =  DateTimeFormatter.ofPattern("yyyy/MM/dd");
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         System.out.println("Checkdeadline");
         try {
             System.out.println("Timesub " +timesubmit);
-            System.out.println(sdf.parse(deadline).before(sdf.parse(timesubmit)));
+            return sdf.parse(timesubmit).before(sdf.parse(deadline));
+
         } catch (ParseException e) {
             System.out.println(e);
             e.printStackTrace();
+
         }
+        return false;
     }
 }
