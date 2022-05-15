@@ -3,7 +3,9 @@ package com.example.plink;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -32,7 +34,7 @@ public class ExcerciseDetailActivity extends AppCompatActivity {
     private MemberSubmittedCRUD memberSubmittedCRUD;
     private TextView authorname,createdat,content,deadline,checksubmit;
     private Toolbar toolbar;
-    private Button btnSubmit;
+    private Button btnSubmit,btnListSubmit;
     private EditText url;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,15 +43,8 @@ public class ExcerciseDetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
         member = (Member) intent.getSerializableExtra("member");
         excercise = (Homework) intent.getSerializableExtra("excercise");
-        authorname = findViewById(R.id.excercisedetail_author_name);
-        createdat = findViewById(R.id.excercisedetail_createdat);
-        content = findViewById(R.id.excercisedetail_content);
-        toolbar = findViewById(R.id.excercisedetail_toolbar);
-        deadline = findViewById(R.id.excercisedetail_deadline);
-        url = findViewById(R.id.urlExcercise);
-        btnSubmit = findViewById(R.id.excercise_submitbtn);
-        checksubmit = findViewById(R.id.checksubmit_excercisedetail);
-        setSupportActionBar(toolbar);
+        author = (Member) intent.getSerializableExtra("author");
+        initView();
         initData();
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
@@ -92,6 +87,30 @@ public class ExcerciseDetailActivity extends AppCompatActivity {
                 }
             }
         });
+
+        btnListSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent  = new Intent(ExcerciseDetailActivity.this,SubmittedStudentActivity.class);
+                intent.putExtra("excerciseid",excercise.getId());
+                startActivity(intent);
+            }
+        });
+
+    }
+
+    private void initView() {
+        authorname = findViewById(R.id.excercisedetail_author_name);
+        createdat = findViewById(R.id.excercisedetail_createdat);
+        content = findViewById(R.id.excercisedetail_content);
+        toolbar = findViewById(R.id.excercisedetail_toolbar);
+        deadline = findViewById(R.id.excercisedetail_deadline);
+        url = findViewById(R.id.urlExcercise);
+        btnSubmit = findViewById(R.id.excercise_submitbtn);
+        checksubmit = findViewById(R.id.checksubmit_excercisedetail);
+        setSupportActionBar(toolbar);
+        btnListSubmit = findViewById(R.id.excercis_listsubmit);
+        btnListSubmit.setVisibility(View.GONE);
     }
 
     private void initData() {
@@ -105,6 +124,23 @@ public class ExcerciseDetailActivity extends AppCompatActivity {
         memberSubmitted.setMemberid(member.getId());
         memberSubmitted.setExcerciseid(excercise.getId());
         memberSubmittedCRUD = new MemberSubmittedCRUD(this);
+
+        if(!checkAuthor()){
+            isSumit();
+        }
+    }
+
+    private boolean checkAuthor() {
+        if(member.getId() == author.getId()){
+            btnListSubmit.setVisibility(View.VISIBLE);
+            btnSubmit.setVisibility(View.GONE);
+            return true;
+        }
+        return false;
+    }
+
+
+    private void isSumit() {
         if(memberSubmittedCRUD.checkSubmit(memberSubmitted)){
             btnSubmit.setEnabled(false);
             btnSubmit.setText("Đã nộp bài");
@@ -117,9 +153,9 @@ public class ExcerciseDetailActivity extends AppCompatActivity {
         }
         else{
             checksubmit.setText("Chưa hoàn thành");
+            checksubmit.setTextColor(Color.parseColor("#ff1a1a"));
             btnSubmit.setEnabled(true);
         }
-
     }
 
     @Override

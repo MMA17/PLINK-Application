@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PLINK">
         <activity
+            android:name=".SubmittedStudentActivity"
+            android:exported="false" />
+        <activity
             android:name=".ExcerciseDetailActivity"
             android:exported="true" />
         <activity
@@ -30,7 +33,8 @@
         <activity
             android:name=".HomeActivity"
             android:exported="true"
-            android:label="" />
+            android:label=""
+            />
         <activity
             android:name=".MainActivity"
             android:exported="true">
