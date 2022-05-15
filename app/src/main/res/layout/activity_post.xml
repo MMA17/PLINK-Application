@@ -5,27 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PostActivity">
-
-    <TextView
-        android:id="@+id/textViewThongBao"
-        android:layout_width="169dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="16dp"
-        android:text="Thông báo"
-        android:textColor="@color/orange"
-        android:textSize="22sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.028"
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/post_toolbar"
+        app:title="Bài đăng"
+        app:titleTextColor="@color/orange"
+        app:navigationIcon="@drawable/backbutton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="8dp"
+        />
+<!--    <androidx.constraintlayout.widget.Guideline-->
+<!--        android:id="@+id/guideline2"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintGuide_percent="0.051983584" />-->
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.051983584" />
-
+        android:id="@+id/textViewPost"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@+id/post_toolbar"
+        android:layout_margin="10dp"
+        android:textColor="@color/black"
+        />
     <!--    <ImageView-->
     <!--        android:id="@+id/btn_add_post"-->
     <!--        android:layout_width="50dp"-->
@@ -53,13 +59,13 @@
 
     <ListView
         android:id="@+id/lv_post"
-        android:layout_width="409dp"
-        android:layout_height="612dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.495" />
+        app:layout_constraintTop_toBottomOf="@+id/post_toolbar"
+        android:divider="#fff"
+        android:dividerHeight="12dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,6 +15,16 @@
         app:titleTextColor="@color/orange"
         app:navigationIcon="@drawable/backbutton"
         />
+    <TextView
+        android:id="@+id/textViewExcercise"
+        android:layout_below="@+id/excercise_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        android:layout_margin="10dp"
+        android:textColor="@color/black"
+        />
     <ListView
         android:id="@+id/excercise_listview"
         android:layout_margin="8dp"

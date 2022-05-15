@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/membersubmit_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:textSize="16dp"
+        android:text="abc"
+        android:fontFamily="@font/merriweather_bold"
+        android:layout_marginLeft="8dp"
+        android:textColor="@color/black3"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="13dp"
+        android:text="abc"
+        android:layout_marginLeft="8dp"
+        android:id="@+id/membersubmit_email"
+        />
+</LinearLayout>

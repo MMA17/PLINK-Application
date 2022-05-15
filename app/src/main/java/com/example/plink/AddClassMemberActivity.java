@@ -52,7 +52,7 @@ public class AddClassMemberActivity extends AppCompatActivity {
             }
         });
 
-        List<Member> memberList = crud2.getAllMembers();
+        List<Member> memberList = crud2.getMemberNotInClass(lop,AddClassMemberActivity.this);
         arrayAdapter = new MemberAdapter(memberList,AddClassMemberActivity.this,lop);
         listView.setAdapter(arrayAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

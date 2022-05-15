@@ -23,18 +23,24 @@ public class MemberAdapter extends BaseAdapter {
     private List<Member> memberList;
     private Context ct;
     private Class lop;
+    private List<Member> tmp;
 
     public MemberAdapter(List<Member> memberList, Context ct, Class lop) {
         this.memberList = memberList;
         this.ct = ct;
         this.lop = lop;
     }
+
+    public MemberAdapter(List<Member> memberList, Context ct) {
+        this.memberList = memberList;
+        this.ct = ct;
+        tmp = new ArrayList<>(memberList);
+    }
+
     public class ViewHolder{
         TextView tvName, tvPhone;
         ImageView imgView;
     }
-
-
 
     @Override
     public int getCount() {
@@ -78,12 +84,31 @@ public class MemberAdapter extends BaseAdapter {
         if (text.isEmpty()){
             memberList.clear();
             MemberCRUD crud = new MemberCRUD(ct);
-            memberList = crud.getAllMembers();
+            memberList = crud.getMemberNotInClass(lop, ct);
         } else{
             ArrayList<Member> res = new ArrayList<>();
             for (Member mem : memberList){
                 if(mem.getName().toLowerCase().contains(text) ||
                 mem.getPhone().toLowerCase().contains(text)){
+                    res.add(mem);
+                }
+            }
+            memberList.clear();
+            memberList.addAll(res);
+        }
+        notifyDataSetChanged();
+    }
+
+    public void search2(String text){
+        text = text.toLowerCase();
+        if (text.isEmpty()){
+            memberList.clear();
+            memberList.addAll(tmp);
+        } else{
+            ArrayList<Member> res = new ArrayList<>();
+            for (Member mem : memberList){
+                if(mem.getName().toLowerCase().contains(text) ||
+                        mem.getPhone().toLowerCase().contains(text)){
                     res.add(mem);
                 }
             }
