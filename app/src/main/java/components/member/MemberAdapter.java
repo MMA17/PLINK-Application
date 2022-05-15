@@ -73,7 +73,7 @@ public class MemberAdapter extends BaseAdapter {
         else{
             viewHolder = (MemberAdapter.ViewHolder) view.getTag();
         }
-        viewHolder.imgView.setImageResource(R.drawable.avatar);
+        viewHolder.imgView.setImageResource(R.drawable.avatar2);
         viewHolder.tvName.setText(memberList.get(i).getName());
         viewHolder.tvPhone.setText(memberList.get(i).getPhone());
         return view;
@@ -81,11 +81,10 @@ public class MemberAdapter extends BaseAdapter {
 
     public void search(String text){
         text = text.toLowerCase();
-        System.out.println(text.length() + "dong76");
         if (text.isEmpty()){
             memberList.clear();
             MemberCRUD crud = new MemberCRUD(ct);
-            memberList = crud.getAllMembers();
+            memberList = crud.getMemberNotInClass(lop, ct);
         } else{
             ArrayList<Member> res = new ArrayList<>();
             for (Member mem : memberList){

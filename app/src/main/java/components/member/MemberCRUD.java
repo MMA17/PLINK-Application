@@ -12,6 +12,9 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import components.classes.Class;
+import components.classmember.ClassMemberCRUD;
+
 public class MemberCRUD extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "Plink_database.db";
     private static final String TABLE_NAME = "member";
@@ -155,4 +158,27 @@ public class MemberCRUD extends SQLiteOpenHelper {
         return true;
     }
 
+    public List<Member> getMemberNotInClass(Class lop, Context ct){
+        List<Member> res = new ArrayList<>();
+        ClassMemberCRUD crud = new ClassMemberCRUD(ct);
+        List<Member> listMemberInClass = crud.getMemberfromClass(lop);
+        List<Member> allMember = getAllMembers();
+        boolean index[] = new boolean[allMember.size()];
+        for(int i = 0; i< allMember.size(); i++){
+            index[i] = true;
+        }
+        for (int i = 0; i< allMember.size(); i++){
+            for (int j =0; j <listMemberInClass.size(); j++){
+                if(allMember.get(i).getId() == listMemberInClass.get(j).getId()){
+                    index[i] = false;
+                }
+            }
+        }
+        for (int i = 0; i <index.length; i++){
+            if (index[i]){
+                res.add(allMember.get(i));
+            }
+        }
+        return res;
+    }
 }
