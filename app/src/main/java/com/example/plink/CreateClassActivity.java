@@ -68,8 +68,7 @@ public class CreateClassActivity extends AppCompatActivity {
                     ClassMember classMember = new ClassMember(member, cc, 1);
                     classMemberCRUD.insertClassMember(classMember);
 
-                    Toast.makeText(CreateClassActivity.this,"Tạo lớp học thành công!",Toast.LENGTH_SHORT).show();
-
+//                    Toast.makeText(CreateClassActivity.this,"Tạo lớp học thành công!",Toast.LENGTH_SHORT).show();
                     Intent intent1 = new Intent(CreateClassActivity.this, CreateClass2Activity.class);
                     intent1.putExtra("class", cc);
                     intent1.putExtra("user", member);
