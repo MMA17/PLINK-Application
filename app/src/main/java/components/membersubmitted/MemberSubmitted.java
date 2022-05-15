@@ -5,17 +5,18 @@ import java.io.Serializable;
 public class MemberSubmitted implements Serializable {
     private int memberid;
     private int excerciseid;
-    private String timesubmit;
     private int fileid;
+    private String timesubmit;
+
 
     public MemberSubmitted() {
     }
 
-    public MemberSubmitted(int memberid, int excerciseid, String timesubmit, int fileid) {
+    public MemberSubmitted(int memberid, int excerciseid, int fileid, String timesubmit) {
         this.memberid = memberid;
         this.excerciseid = excerciseid;
-        this.timesubmit = timesubmit;
         this.fileid = fileid;
+        this.timesubmit = timesubmit;
     }
 
     public int getMemberid() {

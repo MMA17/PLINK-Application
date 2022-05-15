@@ -12,8 +12,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import components.homework.Homework;
 import components.member.Member;
 
 public class MemberSubmittedCRUD extends SQLiteOpenHelper {
@@ -97,5 +100,17 @@ public class MemberSubmittedCRUD extends SQLiteOpenHelper {
 
         }
         return false;
+    }
+    public List<MemberSubmitted> getAllMemberSubmit(int excerciseid){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT * from membersubmitted where excersieid = ?",new String[]{String.valueOf(excerciseid)});
+        List<MemberSubmitted> list = new ArrayList<>();
+        c.moveToFirst();
+        while(c.isAfterLast() == false){
+            MemberSubmitted ms = new MemberSubmitted(c.getInt(0),c.getInt(1),c.getInt(2),c.getString(3));
+            list.add(ms);
+            c.moveToNext();
+        }
+        return list;
     }
 }

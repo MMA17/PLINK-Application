@@ -39,7 +39,8 @@ public class ExcerciseActivity extends AppCompatActivity {
         Intent intent = getIntent();
         member = (Member) intent.getSerializableExtra("member");
         c = (Class) intent.getSerializableExtra("class");
-
+        ClassMemberCRUD classMemberCRUD = new ClassMemberCRUD(this);
+        author = classMemberCRUD.getOwnerfromClass(c.getId());
 
         Toolbar toolbar = findViewById(R.id.excercise_toolbar);
         setSupportActionBar(toolbar);
@@ -48,14 +49,19 @@ public class ExcerciseActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1 = new Intent(ExcerciseActivity.this,CreateHomeworkActivity.class);
-                intent1.putExtra("class",c);
-                startActivity(intent1);
+                if(member.getId() == author.getId()){
+                    Intent intent1 = new Intent(ExcerciseActivity.this,CreateHomeworkActivity.class);
+                    intent1.putExtra("class",c);
+                    startActivity(intent1);
+                }
+                else{
+                    Toast.makeText(ExcerciseActivity.this,"You cant create Homework",Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 
-        ClassMemberCRUD classMemberCRUD = new ClassMemberCRUD(this);
-        author = classMemberCRUD.getOwnerfromClass(c.getId());
+
         init();
 
     }
@@ -84,6 +90,9 @@ public class ExcerciseActivity extends AppCompatActivity {
         if(homeworkList.size()<=0){
             TextView textView = findViewById(R.id.textViewExcercise);
             textView.setText("Chưa có bài tập nào");
+        }
+        if(member.getId() == author.getId()){
+            fab.setVisibility(View.GONE);
         }
     }
 }

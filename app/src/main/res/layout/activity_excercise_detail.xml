@@ -125,6 +125,16 @@
             android:layout_marginBottom="25dp"
             >
         </Button>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/excercis_listsubmit"
+            android:background="@drawable/button"
+            android:layout_gravity="center"
+            android:text="Danh sách nộp bài"
+            android:textColor="@color/white"
+            android:layout_marginBottom="25dp"
+            />
     </LinearLayout>
 
 

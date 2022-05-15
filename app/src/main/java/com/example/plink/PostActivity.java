@@ -7,6 +7,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -88,7 +89,19 @@ public class PostActivity extends AppCompatActivity {
             onBackPressed();
             return true;
         }
+        if(id == R.id.listmember_post){
+            Intent intent = new Intent(PostActivity.this,ClassMemberListActivity.class);
+            intent.putExtra("lop",c);
+            intent.putExtra("member",member);
+            startActivity(intent);
+        }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public  boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.post,menu);
+        return true;
     }
 }
