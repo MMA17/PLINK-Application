@@ -1,12 +1,14 @@
 package com.example.plink;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
@@ -14,6 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -73,6 +76,31 @@ public class HomeActivity extends AppCompatActivity {
         listClass = sqliHelper.getClassbyMember(member,HomeActivity.this);
         adapter = new ClassMemberAdapter(listClass, HomeActivity.this, member);
         listView.setAdapter(adapter);
+//        Xoa lop
+
+//        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+//            @Override
+//            public boolean onItemLongClick(AdapterView<?> parent, View view, int pos, long id) {
+//                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(HomeActivity.this);
+//                alertDialogBuilder.setMessage("Bán có muốn thêm người dùng này vào lớp không");
+//                alertDialogBuilder.setPositiveButton("Có", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//                        System.out.println(pos);
+//                        ClassMember insertClassMem = new ClassMember(listClass.get(pos), lop, 0);
+//                        boolean inserted = crud.insertClassMember(insertClassMem);
+//                        if (inserted == true){
+//                            Toast.makeText(HomeActivity.this,"Đã thêm thành công", Toast.LENGTH_SHORT).show();
+//                            listClass.remove(pos);
+//                            adapter.notifyDataSetChanged();
+//                        }else {
+//                            listClass.remove(pos);
+//                            adapter.notifyDataSetChanged();
+//                        }
+//                    }
+//                });
+//            }
+//        });
         adapter.notifyDataSetChanged();
     }
     @Override
