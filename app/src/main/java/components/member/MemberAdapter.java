@@ -23,6 +23,7 @@ public class MemberAdapter extends BaseAdapter {
     private List<Member> memberList;
     private Context ct;
     private Class lop;
+    private List<Member> tmp;
 
     public MemberAdapter(List<Member> memberList, Context ct, Class lop) {
         this.memberList = memberList;
@@ -33,14 +34,13 @@ public class MemberAdapter extends BaseAdapter {
     public MemberAdapter(List<Member> memberList, Context ct) {
         this.memberList = memberList;
         this.ct = ct;
+        tmp = new ArrayList<>(memberList);
     }
 
     public class ViewHolder{
         TextView tvName, tvPhone;
         ImageView imgView;
     }
-
-
 
     @Override
     public int getCount() {
@@ -91,6 +91,25 @@ public class MemberAdapter extends BaseAdapter {
             for (Member mem : memberList){
                 if(mem.getName().toLowerCase().contains(text) ||
                 mem.getPhone().toLowerCase().contains(text)){
+                    res.add(mem);
+                }
+            }
+            memberList.clear();
+            memberList.addAll(res);
+        }
+        notifyDataSetChanged();
+    }
+
+    public void search2(String text){
+        text = text.toLowerCase();
+        if (text.isEmpty()){
+            memberList.clear();
+            memberList.addAll(tmp);
+        } else{
+            ArrayList<Member> res = new ArrayList<>();
+            for (Member mem : memberList){
+                if(mem.getName().toLowerCase().contains(text) ||
+                        mem.getPhone().toLowerCase().contains(text)){
                     res.add(mem);
                 }
             }

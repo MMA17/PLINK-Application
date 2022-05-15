@@ -5,6 +5,7 @@ import androidx.appcompat.widget.SearchView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -62,7 +63,6 @@ public class CreateClass2Activity extends AppCompatActivity {
                 finish();
             }
         });
-
         adapter = new MemberAdapter(allMember, CreateClass2Activity.this);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -81,15 +81,14 @@ public class CreateClass2Activity extends AppCompatActivity {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                adapter.search(query);
+                adapter.search2(query);
                 return true;
             }
 
             @Override
-            public boolean onQueryTextChange(String newText) {
-                adapter.search(newText);
+            public boolean onQueryTextChange(String query) {
+                adapter.search2(query);
                 return true;
-
             }
         });
     }
