@@ -48,7 +48,7 @@ public class PostCRUD extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertPost(Post post) {
+    public Post insertPost(Post post) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put(KEY_TITLE, post.getTitle());
@@ -57,10 +57,25 @@ public class PostCRUD extends SQLiteOpenHelper {
         cv.put(KEY_AUTHOR, post.getAuthor());
         cv.put(KEY_CLASSID, post.getClassid());
         long res = db.insert(TABLE_NAME, null, cv);
+
+        db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM post WHERE " + KEY_CREATEAT + "= '" + post.getCreate_at() + "'", null);
+        Post p = new Post();
+        while(cursor!=null && cursor.moveToNext()){
+            int id = cursor.getInt(0);
+            String title = cursor.getString(1);
+            String content = cursor.getString(2);
+            String date = cursor.getString(3);
+            int authorid = cursor.getInt(4);
+            int classid = cursor.getInt(5);
+            p = new Post(id,title,content,date,authorid,classid);
+        }
+
         if (res == -1)
-            return false;
-        return true;
+            return null;
+        return p;
     }
+
 
     public List<Post> getAll(Class lop){
         List<Post> list = new ArrayList<>();

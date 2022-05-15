@@ -2,6 +2,7 @@ package com.example.plink;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 import java.util.Calendar;
 
 import components.member.Member;
+import components.member.MemberCRUD;
 
 public class EditUserActivity extends AppCompatActivity {
     private TextView txtPositon;
@@ -35,18 +37,37 @@ public class EditUserActivity extends AppCompatActivity {
         member = (Member) i.getSerializableExtra("Member");
         initView(member);
         initDatePicker();
-        btnUpdate = findViewById(R.id.btnEdit);
 
-
-
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                member.setName(username.getText().toString());
+                member.setEmail(email.getText().toString());
+                member.setDOB(btnDOB.getText().toString());
+                boolean res = new MemberCRUD(EditUserActivity.this).updateMember(member);
+                if(res){
+                    Toast.makeText(EditUserActivity.this,"Cập nhật thành công",Toast.LENGTH_SHORT).show();
+                    Intent returnIntent = new Intent();
+                    returnIntent.putExtra("Member",member);
+                    setResult(Activity.RESULT_OK,returnIntent);
+                    finish();
+                }
+                else{
+                    Toast.makeText(EditUserActivity.this,"Cập nhật thất bại",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private void initView(Member member) {
         username = findViewById(R.id.txtUsername);
         phone = findViewById(R.id.txtPhone);
+        phone.setEnabled(false);
         email = findViewById(R.id.txtEmail);
         txtPositon=findViewById(R.id.txtPosition);
+        txtPositon.setEnabled(false);
         btnDOB = findViewById(R.id.btnDOB);
+        btnUpdate = findViewById(R.id.btnUpdate);
 
         txtPositon.setText(member.getRole());
         username.setText(member.getName());

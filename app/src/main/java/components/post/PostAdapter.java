@@ -17,6 +17,8 @@ import org.w3c.dom.Text;
 
 import java.util.List;
 
+import components.classes.Class;
+import components.classmember.ClassMemberCRUD;
 import components.member.Member;
 import components.member.MemberCRUD;
 
@@ -24,6 +26,7 @@ public class PostAdapter extends BaseAdapter {
     private List<Post> listPost;
     private Context context;
     private Member member;
+    private Class c;
 //    private String authorName;
 
     private class ViewHolder {
@@ -31,10 +34,11 @@ public class PostAdapter extends BaseAdapter {
         TextView Post_author_position, Post_author, Post_date, Post_content;
     }
 
-    public PostAdapter(List<Post> listPost, Context context, Member member) {
+    public PostAdapter(List<Post> listPost, Context context, Member member, Class c) {
         this.listPost = listPost;
         this.context = context;
         this.member = member;
+        this.c = c;
     }
 
     @Override
@@ -78,12 +82,20 @@ public class PostAdapter extends BaseAdapter {
 
         String authorName = m.getName();
 
+        String position = "Sinh Viên";
+        ClassMemberCRUD sql = new ClassMemberCRUD(context);
+        Member temp = sql.getOwnerfromClass(c.getId());
+        if (temp.getId() == m.getId()) {
+            position = "Giáo viên";
+        }
+
         ViewHolder.Post_author_avatar.setImageResource(R.drawable.avatar2);
         ViewHolder.Post_author.setText(m.getName());
         ViewHolder.Post_date.setText(listPost.get(i).getCreate_at());
-        ViewHolder.Post_author_position.setText("Giáo Viên");
+        ViewHolder.Post_author_position.setText(position);
         ViewHolder.Post_content.setText(listPost.get(i).getContent());
 
+        String TempPosition = position;
         ViewHolder.Post_content.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -91,6 +103,7 @@ public class PostAdapter extends BaseAdapter {
                 in.putExtra("post", listPost.get(i));
                 in.putExtra("user", member);
                 in.putExtra("authorName", authorName);
+                in.putExtra("position", TempPosition);
                 context.startActivity(in);
             }
         });

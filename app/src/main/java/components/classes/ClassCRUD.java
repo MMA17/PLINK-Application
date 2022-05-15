@@ -5,11 +5,16 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
+import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
+import components.classmember.ClassMember;
 import components.file.File;
+import components.member.Member;
+import components.post.Post;
 
 public class ClassCRUD extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "Plink_database.db";
@@ -59,18 +64,67 @@ public class ClassCRUD extends SQLiteOpenHelper {
         }
         return classList;
     }
-    public boolean insertClass(Class lop) {
+    public List<Class> getALlClassMemberNotIn(Member member){
+        //Lọc những lớp mà member ở trong
+        List<Class> classListMemberIn = new ArrayList<>();
+        String query = "Select class.id, class.name, class.note from class inner join Classmember on class.id = classmember.classid where classmember.memberid = ?";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, new String[]{String.valueOf(member.getId())});
+        cursor.moveToFirst();
+        while(cursor.isAfterLast() == false){
+            Class lop = new Class();
+            lop.setId(cursor.getInt(0));
+            lop.setName(cursor.getString(1));
+            lop.setNote(cursor.getString(2));
+            classListMemberIn.add(lop);
+            cursor.moveToNext();
+        }
+        //lọc ra những lớp nó ko ở trong:
+        List<Class> classList = new ArrayList<>(getAllClasses());
+        System.out.println(classList.size()+ " classlist");
+        boolean index [] = new boolean[classList.size()];
+        for(int i = 0; i< classList.size(); i++){
+            index[i] = true;
+        }
+
+        for (int i = 0; i< classList.size(); i++){
+            for (int j =0; j <classListMemberIn.size(); j++){
+                if(classList.get(i).getId() == classListMemberIn.get(j).getId()){
+                    index[i] = false;
+                }
+            }
+        }
+//        for (boolean i : index){
+//            System.out.println(i + "dau buoiiiiii");
+//        }
+        List<Class> res = new ArrayList<>();
+        for (int i = 0; i <index.length; i++){
+            if (index[i]){
+                res.add(classList.get(i));
+            }
+        }
+        return res;
+
+    }
+    public Class insertClass(Class lop) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(KEY_ID,lop.getId());
+//        contentValues.put(KEY_ID,lop.getId());
         contentValues.put(KEY_NAME,lop.getName());
         contentValues.put(KEY_NOTE,lop.getNote());
         long result = db.insert(TABLE_NAME,null ,contentValues);
         if(result == -1)
-            return false;
-        else
-            return true;
+            return null;
+        else{
+            Cursor cursor = db.query(TABLE_NAME, null, KEY_NAME + " = ?", new String[] { String.valueOf(lop.getName()) },null, null, null);
+            if(cursor != null)
+                cursor.moveToFirst();
+            Class lopp = new Class(cursor.getInt(0), cursor.getString(1), cursor.getString(2));
+            return lopp;
+        }
+
     }
+
     public boolean updateClass(Class lop) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -97,4 +151,5 @@ public class ClassCRUD extends SQLiteOpenHelper {
         SQLiteDatabase database = getWritableDatabase();
         database.execSQL(sql);
     }
+
 }

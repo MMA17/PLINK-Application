@@ -25,13 +25,20 @@
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/fragment_first.xml" value="0.25416666666666665" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/fragment_second.xml" value="0.25416666666666665" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/row_comment.xml" value="0.264" />
+        <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/drawable/ic_baseline_group_24.xml" value="0.134" />
         <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/layout/activity_add_class_member.xml" value="0.16979166666666667" />
         <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/layout/activity_class_members_list.xml" value="0.16979166666666667" />
+        <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/layout/activity_home.xml" value="0.2988679352838745" />
+        <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/layout/activity_join_class.xml" value="0.159375" />
         <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/layout/activity_post_detail.xml" value="0.16979166666666667" />
         <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/layout/activity_profile.xml" value="0.16979166666666667" />
         <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/layout/activity_register.xml" value="0.16979166666666667" />
         <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/layout/add_class_member_item.xml" value="0.16979166666666667" />
         <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/layout/class_member_list_row.xml" value="0.16979166666666667" />
+        <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/layout/fab_close.xml" value="0.29583333333333334" />
+        <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/layout/home_item.xml" value="0.16979166666666667" />
+        <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/layout/join_class_row.xml" value="0.159375" />
+        <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/menu/main.xml" value="0.16979166666666667" />
         <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/activity_add_class_member.xml" value="0.23489583333333333" />
         <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/activity_class_members_list.xml" value="0.23489583333333333" />
         <entry key="..\:/LamBui/PLINK-Application/app/src/main/res/layout/activity_create_homework.xml" value="0.1453125" />

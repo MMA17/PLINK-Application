@@ -1,5 +1,6 @@
 package com.example.plink;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -49,4 +50,14 @@ public class ProfileActivity extends AppCompatActivity {
         role.setText(member.getRole());
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+       if(requestCode == EDIT_CODE && resultCode == RESULT_OK){
+           member = (Member) data.getSerializableExtra("Member");
+           username.setText(member.getName());
+           email.setText(member.getEmail());
+           DOB.setText(member.getDOB());
+       }
+    }
 }

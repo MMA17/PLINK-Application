@@ -30,63 +30,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
 
-        <HorizontalScrollView
-            android:id="@+id/HorizontalScrollView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/PostDescription"
-            app:layout_constraintVertical_bias="0.0">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/button1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="6dp"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:drawableLeft="@drawable/iconsdocument"
-                    android:maxLength="12"
-                    android:padding="8dp"
-                    android:text="Danh sach lop.pdf"
-                    android:textSize="12dp" />
-
-                <Button
-                    android:id="@+id/button2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="6dp"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:drawableLeft="@drawable/iconsdocument"
-                    android:maxLength="12"
-                    android:padding="8dp"
-                    android:text="Bang diem.pdf"
-                    android:textSize="12dp" />
-
-                <Button
-                    android:id="@+id/button3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="6dp"
-                    android:layout_weight="1"
-                    android:background="@color/white"
-                    android:drawableLeft="@drawable/iconsdocument"
-                    android:maxLength="12"
-                    android:padding="8dp"
-                    android:text="Bai tap.pdf"
-                    android:textSize="12dp" />
-            </LinearLayout>
-        </HorizontalScrollView>
-
         <ImageView
             android:id="@+id/PostAvatar"
             android:layout_width="69dp"
@@ -132,10 +75,9 @@
             android:text="Xin chào mừng tất cả các bạn đã tham gia nhóm lớp D18. Danh sách sinh viên sẽ trong file đính kèm"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.29"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.458" />
+            app:layout_constraintVertical_bias="0.441" />
 
         <TextView
             android:id="@+id/PostUsername"
@@ -160,6 +102,16 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/PostAvatar" />
+
+        <ListView
+            android:id="@+id/lv_file"
+            android:layout_width="406dp"
+            android:layout_height="146dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/PostDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

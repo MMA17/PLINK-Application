@@ -5,10 +5,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -21,6 +23,9 @@ import java.util.List;
 import components.comment.Comment;
 import components.comment.CommentAdapter;
 import components.comment.CommentCRUD;
+import components.file.File;
+import components.file.FileAdapter;
+import components.file.FileCRUD;
 import components.member.Member;
 import components.post.Post;
 
@@ -41,6 +46,7 @@ public class PostDetailActivity extends AppCompatActivity {
         member = (Member) i.getSerializableExtra("user");
         post = (Post) i.getSerializableExtra("post");
         String authorName = i.getStringExtra("authorName");
+        String pos = i.getStringExtra("position");
         ImageView avatar = findViewById(R.id.PostAvatar);
         // Set avatar
         avatar.setImageResource(R.drawable.avatar2);
@@ -52,7 +58,7 @@ public class PostDetailActivity extends AppCompatActivity {
         author_name.setText(authorName);
 
         TextView position = (TextView) findViewById(R.id.position);
-        position.setText("Giáo viên");
+        position.setText(pos);
 
         TextView title = (TextView) findViewById(R.id.Post_title);
         title.setText(post.getTitle());
@@ -60,6 +66,15 @@ public class PostDetailActivity extends AppCompatActivity {
         PostDate.setText(post.getCreate_at());
         TextView PostDes = (TextView) findViewById(R.id.PostDescription);
         PostDes.setText(post.getContent());
+
+//        Get File in this post
+        ListView lv_file = findViewById(R.id.lv_file);
+        FileCRUD sql = new FileCRUD(PostDetailActivity.this);
+        List<File> listFile = sql.getAllFileOfPost(post);
+        FileAdapter adapterFile = new FileAdapter(listFile, PostDetailActivity.this);
+        lv_file.setAdapter(adapterFile);
+        adapterFile.notifyDataSetChanged();
+
 
 //        Get comment of this post
         ListView lv_comment = findViewById(R.id.lv_comment);
