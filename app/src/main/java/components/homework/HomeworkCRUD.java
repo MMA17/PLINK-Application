@@ -50,7 +50,8 @@ public class HomeworkCRUD extends SQLiteOpenHelper {
         cv.put(KEY_CREATEAT, homework.getCreate_at());
         cv.put(KEY_CLASSID, homework.getClassid());
         long res = db.insert(TABLE_NAME, null, cv);
-
+        if (res == -1)
+            return null;
         db = this.getReadableDatabase();
         Cursor cursor1 = db.rawQuery("SELECT * FROM excersie WHERE " + KEY_CREATEAT + "= '" + homework.getCreate_at() + "'", null);
         Homework h = new Homework();
@@ -63,8 +64,7 @@ public class HomeworkCRUD extends SQLiteOpenHelper {
             String createat = cursor1.getString(5);
             h = new Homework(id,title,content,deadline,classid,createat);
         }
-        if (res == -1)
-            return null;
+
         return h;
     }
 
