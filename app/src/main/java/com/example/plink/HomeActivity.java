@@ -46,7 +46,7 @@ public class HomeActivity extends AppCompatActivity {
     private FloatingActionButton fab, fab2, fab3;
     private Member member;
     private boolean isFABOpen =false;
-    private TextView tvJoin, tvCreate;
+    private TextView tvJoin, tvCreate,txtHome;
 
 
     @Override
@@ -60,7 +60,7 @@ public class HomeActivity extends AppCompatActivity {
         fab3 = findViewById(R.id.fab3);
         tvJoin = findViewById(R.id.textview_join);
         tvCreate = findViewById(R.id.textview_create);
-
+        txtHome = findViewById(R.id.txtHomeActivity);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
@@ -137,6 +137,14 @@ public class HomeActivity extends AppCompatActivity {
 //            }
 //        });
         adapter.notifyDataSetChanged();
+        if(listClass.size() <=0){
+
+            txtHome.setText("Chua tham gia lop nao");
+            txtHome.setVisibility(View.VISIBLE);
+        }
+        else{
+            txtHome.setVisibility(View.INVISIBLE);
+        }
     }
     @Override
     public  boolean onCreateOptionsMenu(Menu menu){
@@ -147,7 +155,8 @@ public class HomeActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
         int id = item.getItemId();
         if(id == R.id.bell){
-            Toast.makeText(HomeActivity.this,"Nelll",Toast.LENGTH_SHORT).show();
+            Toast.makeText(HomeActivity.this,"Dang xuat",Toast.LENGTH_SHORT).show();
+            finish();
         }
         else{
             Intent i = new Intent(this,ProfileActivity.class);

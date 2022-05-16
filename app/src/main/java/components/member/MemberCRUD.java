@@ -23,6 +23,7 @@ public class MemberCRUD extends SQLiteOpenHelper {
     private static final String KEY_PHONE = "phone";
     private static final String KEY_ROLE = "role";
     private static final String KEY_PASSWORD = "password";
+    private static final String KEY_EMAIL = "email";
     private static final String KEY_DOB = "dob";
 
     public MemberCRUD(Context context){
@@ -52,6 +53,7 @@ public class MemberCRUD extends SQLiteOpenHelper {
         contentValues.put(KEY_ROLE,member.getRole());
         contentValues.put(KEY_PASSWORD,member.getPassword());
         contentValues.put(KEY_DOB, member.getDOB());
+        contentValues.put(KEY_EMAIL,member.getEmail());
         long result = db.insert(TABLE_NAME,null ,contentValues);
         db.close();
         if(result == -1)

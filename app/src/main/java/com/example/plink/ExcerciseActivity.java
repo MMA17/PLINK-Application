@@ -46,6 +46,7 @@ public class ExcerciseActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         fab = findViewById(R.id.fab_excercise);
+        init();
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,7 +63,7 @@ public class ExcerciseActivity extends AppCompatActivity {
         });
 
 
-        init();
+
 
     }
     @Override
@@ -91,8 +92,9 @@ public class ExcerciseActivity extends AppCompatActivity {
             TextView textView = findViewById(R.id.textViewExcercise);
             textView.setText("Chưa có bài tập nào");
         }
-        if(member.getId() == author.getId()){
-            fab.setVisibility(View.GONE);
+        if(member.getId() != author.getId()){
+
+            fab.setVisibility(View.INVISIBLE);
         }
     }
 }
