@@ -12,7 +12,9 @@
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable/button.xml" value="0.2595" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2265" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_comment.xml" value="0.4" />
+        <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_create_post.xml" value="0.1526268115942029" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_edit_user.xml" value="0.25416666666666665" />
+        <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_excercise.xml" value="0.1526268115942029" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_home.xml" value="0.264" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_post.xml" value="0.25416666666666665" />
@@ -21,9 +23,11 @@
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_profile2.xml" value="0.25416666666666665" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_register.xml" value="0.264" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_user_profile.xml" value="0.25416666666666665" />
+        <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/comment_item.xml" value="0.25416666666666665" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/content_profile.xml" value="0.25416666666666665" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/fragment_first.xml" value="0.25416666666666665" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/fragment_second.xml" value="0.25416666666666665" />
+        <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/post_item.xml" value="0.1526268115942029" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/row_comment.xml" value="0.264" />
         <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/drawable/ic_baseline_group_24.xml" value="0.134" />
         <entry key="..\:/Hoc/MAD2/PLink/app/src/main/res/layout/activity_add_class_member.xml" value="0.16979166666666667" />

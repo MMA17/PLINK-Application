@@ -35,10 +35,10 @@ public class PostDetailActivity extends AppCompatActivity {
     private RecyclerView recyclerView ;
     private CommentAdapter commentAdapter;
     private Context context;
-
+    private ListView lv_comment;
     private Member member;
     private Post post;
-
+    private String authorName,pos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,45 +48,17 @@ public class PostDetailActivity extends AppCompatActivity {
         Intent i = getIntent();
         member = (Member) i.getSerializableExtra("user");
         post = (Post) i.getSerializableExtra("post");
-        String authorName = i.getStringExtra("authorName");
-        String pos = i.getStringExtra("position");
-        ImageView avatar = findViewById(R.id.PostAvatar);
-        // Set avatar
-        avatar.setImageResource(R.drawable.avatar2);
-
-        //Set author's name
-        TextView author_name = (TextView) findViewById(R.id.PostUsername);
-
-        System.out.println(authorName);
-        author_name.setText(authorName);
-
-        TextView position = (TextView) findViewById(R.id.position);
-        position.setText(pos);
-
-        TextView title = (TextView) findViewById(R.id.Post_title);
-        title.setText(post.getTitle());
-        TextView PostDate = (TextView) findViewById(R.id.postDate);
-        PostDate.setText(post.getCreate_at());
-        TextView PostDes = (TextView) findViewById(R.id.PostDescription);
-        PostDes.setText(post.getContent());
+        authorName = i.getStringExtra("authorName");
+        pos = i.getStringExtra("position");
+        toolbar.setTitle(post.getTitle());
+        initView();
 
 //        Get File in this post
-        ListView lv_file = findViewById(R.id.lv_file);
-        FileCRUD sql = new FileCRUD(PostDetailActivity.this);
-        List<File> listFile = sql.getAllFileOfPost(post);
-        FileAdapter adapterFile = new FileAdapter(listFile, PostDetailActivity.this);
-        lv_file.setAdapter(adapterFile);
-        adapterFile.notifyDataSetChanged();
-
+        getFileinPost();
 
 //        Get comment of this post
-        ListView lv_comment = findViewById(R.id.lv_comment);
-        CommentCRUD sqliteHelper = new CommentCRUD(PostDetailActivity.this);
-        List<Comment> listComment = sqliteHelper.getCommentbyPostId(post.getId());
-        CommentAdapter adapter = new CommentAdapter(listComment,PostDetailActivity.this, post);
+        getCommentinPost();
 
-        lv_comment.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
 
         Button add_cmt = (Button) findViewById(R.id.btn_comment_post);
         add_cmt.setOnClickListener(new View.OnClickListener() {
@@ -103,7 +75,6 @@ public class PostDetailActivity extends AppCompatActivity {
                 c.setContent(content);
                 c.setAuthorid(member.getId());
                 c.setPostid(post.getId());
-
                 if (crud.addComment(c) == true) {
                     Toast.makeText(PostDetailActivity.this, "Thêm bình luận thành công!", Toast.LENGTH_SHORT).show();
                     finish();
@@ -117,6 +88,31 @@ public class PostDetailActivity extends AppCompatActivity {
 
     }
 
+    private void getCommentinPost() {
+        lv_comment = findViewById(R.id.lv_comment);
+        CommentCRUD sqliteHelper = new CommentCRUD(PostDetailActivity.this);
+        List<Comment> listComment = sqliteHelper.getCommentbyPostId(post.getId());
+        CommentAdapter adapter = new CommentAdapter(listComment,PostDetailActivity.this, post);
+        System.out.println(listComment.size() + "List comment");
+        lv_comment.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+    }
+
+    private void initView() {
+        ImageView avatar = findViewById(R.id.PostAvatar);
+        avatar.setImageResource(R.drawable.avatar2);
+        TextView author_name = (TextView) findViewById(R.id.PostUsername);
+        author_name.setText(authorName);
+        TextView position = (TextView) findViewById(R.id.position);
+        position.setText(pos);
+        TextView title = (TextView) findViewById(R.id.Post_title);
+        title.setText(post.getTitle());
+        TextView PostDate = (TextView) findViewById(R.id.postDate);
+        PostDate.setText(post.getCreate_at());
+        TextView PostDes = (TextView) findViewById(R.id.PostDescription);
+        PostDes.setText(post.getContent());
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         int id = item.getItemId();
@@ -126,5 +122,13 @@ public class PostDetailActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    private void getFileinPost(){
+        ListView lv_file = findViewById(R.id.lv_file);
+        FileCRUD sql = new FileCRUD(PostDetailActivity.this);
+        List<File> listFile = sql.getAllFileOfPost(post);
+        FileAdapter adapterFile = new FileAdapter(listFile, PostDetailActivity.this);
+        lv_file.setAdapter(adapterFile);
+        adapterFile.notifyDataSetChanged();
     }
 }

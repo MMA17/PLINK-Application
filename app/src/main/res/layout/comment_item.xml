@@ -33,6 +33,7 @@
         android:maxWidth="250dp"
         android:maxHeight="100dp"
         android:text="Nội dung bình luận"
+        android:maxLength="80"
         android:textSize="15sp" />
 
     <TextView
