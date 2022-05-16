@@ -15,38 +15,22 @@
         app:titleTextColor="@color/orange"
         app:navigationIcon="@drawable/backbutton"
         />
-<!--    <TextView-->
-<!--        android:id="@+id/textViewThongBao3"-->
-<!--        android:layout_width="198dp"-->
-<!--        android:layout_height="32dp"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        android:text="Chi tiết thông báo"-->
-<!--        android:textColor="@color/orange"-->
-<!--        android:textSize="22sp"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/postdetail_toolbar" />-->
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="410dp"
-        android:layout_height="367dp"
-        android:layout_marginBottom="292dp"
+
+    <ImageView
+        android:id="@+id/PostAvatar"
+        android:layout_width="69dp"
+        android:layout_height="59dp"
+        android:layout_marginEnd="13dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/position"
+        app:layout_constraintHorizontal_bias="12.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/postdetail_toolbar">
+        app:layout_constraintTop_toBottomOf="@+id/postdetail_toolbar"
+        app:layout_constraintVertical_bias="0.017"
+        tools:srcCompat="@tools:sample/avatars" />
 
-        <ImageView
-            android:id="@+id/PostAvatar"
-            android:layout_width="69dp"
-            android:layout_height="59dp"
-            android:layout_marginEnd="13dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/position"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.041"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <TextView
+    <TextView
             android:id="@+id/position"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -62,7 +46,7 @@
 
         <TextView
             android:id="@+id/postDate"
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text="01/01/2022"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -72,18 +56,19 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.15" />
 
-        <TextView
-            android:id="@+id/PostDescription"
-            android:layout_width="360dp"
-            android:layout_height="84dp"
-            android:text="Xin chào mừng tất cả các bạn đã tham gia nhóm lớp D18. Danh sách sinh viên sẽ trong file đính kèm"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.441" />
+    <TextView
+        android:id="@+id/PostDescription"
+        android:layout_width="360dp"
+        android:layout_height="84dp"
+        android:text="Xin chào.Danh sách sinh viên sẽ trong file đính kèm"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.313"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/PostUsername"
+        app:layout_constraintVertical_bias="0.183" />
 
-        <TextView
+    <TextView
             android:id="@+id/PostUsername"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -92,37 +77,40 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.262"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.037" />
+            app:layout_constraintVertical_bias="0.015"
+            app:layout_constraintTop_toBottomOf="@+id/position"/>
 
-        <TextView
-            android:id="@+id/Post_title"
-            android:layout_width="395dp"
-            android:layout_height="30dp"
-            android:text="Tiêu đề bài đăng"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/PostDescription"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/PostAvatar" />
+    <TextView
+        android:id="@+id/Post_title"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:gravity="left"
+        android:text="Tiêu đề bài đăng"
+        android:textSize="20sp"
+        android:fontFamily="@font/merriweather_bold"
+        app:layout_constraintBottom_toTopOf="@+id/PostDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PostAvatar"
+        app:layout_constraintVertical_bias="0.379" />
 
-        <ListView
+    <ListView
             android:id="@+id/lv_file"
             android:layout_width="406dp"
-            android:layout_height="146dp"
+            android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/PostDescription" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ListView
         android:id="@+id/lv_comment"
         android:layout_width="407dp"
         android:layout_height="233dp"
+        android:padding="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
