@@ -114,5 +114,7 @@ public class ClassMemberCRUD extends SQLiteOpenHelper {
                 cursor1.getString(4),cursor1.getString(5),cursor1.getString(6));
         return member;
     }
+
+
 }
 

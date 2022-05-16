@@ -5,30 +5,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PostDetailActivity">
-
-    <TextView
-        android:id="@+id/textViewThongBao3"
-        android:layout_width="198dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="16dp"
-        android:text="Chi tiết thông báo"
-        android:textColor="@color/orange"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.028"
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/postdetail_toolbar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Chi tiết bài đăng"
+        app:titleTextColor="@color/orange"
+        app:navigationIcon="@drawable/backbutton"
+        />
+<!--    <TextView-->
+<!--        android:id="@+id/textViewThongBao3"-->
+<!--        android:layout_width="198dp"-->
+<!--        android:layout_height="32dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        android:text="Chi tiết thông báo"-->
+<!--        android:textColor="@color/orange"-->
+<!--        android:textSize="22sp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/postdetail_toolbar" />-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="410dp"
         android:layout_height="367dp"
         android:layout_marginBottom="292dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/postdetail_toolbar">
 
         <ImageView
             android:id="@+id/PostAvatar"

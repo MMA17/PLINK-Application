@@ -34,22 +34,24 @@ public class RegisterActivity extends AppCompatActivity  {
                 user.setName(name);
                 user.setPhone(phone);
                 user.setPassword(password);
+                user.setDOB("04/03/2000");
+                user.setEmail(email);
                 MemberCRUD memberCURD = new MemberCRUD(RegisterActivity.this);
 //                memberCURD.onCreate();
-
                     //Tai khoan chua co trong DB
                 System.out.println(memberCURD.getMemberbyPhone(user.getPhone()));
-                if(memberCURD.getMemberbyPhone(user.getPhone()) == null){
+                if(memberCURD.getMemberbyPhone(user.getPhone()) == null ){
                     //Tai khoan chua co trong DB
-                    //System.out.println(memberCURD.getMemberbyPhone(user.getPhone());
-                    System.out.println("Trong if");
 
-                    memberCURD.insertMember(user);
-                    Toast.makeText(RegisterActivity.this,"Đăng kí thành công",Toast.LENGTH_LONG).show();
-                    Intent i = new Intent();
-                    i.putExtra("data",user);
-                    setResult(RESULT_OK,i);
-                    finish();
+                    user.setRole("user");
+                    if(memberCURD.insertMember(user)){
+                        Toast.makeText(RegisterActivity.this,"Đăng kí thành công",Toast.LENGTH_LONG).show();
+                        Intent i = new Intent();
+                        i.putExtra("data",user);
+                        setResult(RESULT_OK,i);
+                        finish();
+                    }
+
                 }
                 else{
                     Toast.makeText(RegisterActivity.this,"Tài khoản tồn tại",Toast.LENGTH_LONG).show();
@@ -76,7 +78,7 @@ public class RegisterActivity extends AppCompatActivity  {
         txtPhone = findViewById(R.id.txtPhone);
         txtPasswd = findViewById(R.id.txtPass);
         txtUsername = findViewById(R.id.txtUsername);
-        txtMail = findViewById(R.id.txtEmail);
+        txtMail = findViewById(R.id.txtEmail_register);
         btnCancel = findViewById(R.id.Cancle);
     }
 }

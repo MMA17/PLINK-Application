@@ -75,7 +75,7 @@ public class HomeworkAdapter extends BaseAdapter {
                 Intent intent = new Intent(mContext, ExcerciseDetailActivity.class);
                 intent.putExtra("member",member);
                 intent.putExtra("excercise",homeworkList.get(i));
-
+                intent.putExtra("author",author);
                 mContext.startActivity(intent);
             }
         });

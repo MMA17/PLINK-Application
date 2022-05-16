@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SubmittedStudentActivity"
+    android:orientation="vertical">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/membersubmit_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="Danh sách nộp bài"
+        app:titleTextColor="@color/orange"
+        app:navigationIcon="@drawable/backbutton"
+
+        />
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/membersumit_lv"
+        android:divider="@color/white_dark"
+        android:dividerHeight="4dp"
+        android:layout_below="@+id/membersubmit_toolbar"
+        android:layout_margin="8dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/membersubmit_toolbar"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        android:id="@+id/textViewSubmitList"
+        />
+</RelativeLayout>

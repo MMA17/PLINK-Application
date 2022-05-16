@@ -6,15 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".EditUserActivity"
     android:orientation="vertical">
-    <TextView
+    <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/orange"
-        android:text="Sửa thông tin cá nhân"
-        android:textAlignment="center"
-        android:textSize="18dp"
-        android:layout_marginBottom="22dp"
+        android:layout_height="?attr/actionBarSize"
+        app:navigationIcon="@drawable/backbutton"
+        app:title="Sửa thông tin cá nhân"
+        app:titleTextColor="@color/orange"
         />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

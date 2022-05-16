@@ -70,7 +70,7 @@ public class ClassMember2Adapter extends BaseAdapter {
         else{
             viewHolder = (ClassMember2Adapter.ViewHolder) view.getTag();
         }
-        viewHolder.imgView.setImageResource(R.drawable.avatar);
+        viewHolder.imgView.setImageResource(R.drawable.avatar2);
         viewHolder.tvName.setText(memberList.get(i).getName());
         viewHolder.btn1.setOnClickListener(new View.OnClickListener(){
             @Override

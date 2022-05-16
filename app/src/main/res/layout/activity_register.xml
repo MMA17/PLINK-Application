@@ -63,7 +63,7 @@
             android:textSize="13dp" />
 
         <EditText
-            android:id="@+id/txtEmail"
+            android:id="@+id/txtEmail_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txtPhone"
@@ -77,7 +77,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:passwordToggleEnabled="true"
-            android:layout_below="@id/txtEmail"
+            android:layout_below="@id/txtEmail_register"
             android:id="@+id/special"
             >
 

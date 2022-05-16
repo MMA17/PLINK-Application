@@ -12,6 +12,9 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import components.classes.Class;
+import components.classmember.ClassMemberCRUD;
+
 public class MemberCRUD extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "Plink_database.db";
     private static final String TABLE_NAME = "member";
@@ -20,6 +23,7 @@ public class MemberCRUD extends SQLiteOpenHelper {
     private static final String KEY_PHONE = "phone";
     private static final String KEY_ROLE = "role";
     private static final String KEY_PASSWORD = "password";
+    private static final String KEY_EMAIL = "email";
     private static final String KEY_DOB = "dob";
 
     public MemberCRUD(Context context){
@@ -49,6 +53,7 @@ public class MemberCRUD extends SQLiteOpenHelper {
         contentValues.put(KEY_ROLE,member.getRole());
         contentValues.put(KEY_PASSWORD,member.getPassword());
         contentValues.put(KEY_DOB, member.getDOB());
+        contentValues.put(KEY_EMAIL,member.getEmail());
         long result = db.insert(TABLE_NAME,null ,contentValues);
         db.close();
         if(result == -1)
@@ -155,4 +160,27 @@ public class MemberCRUD extends SQLiteOpenHelper {
         return true;
     }
 
+    public List<Member> getMemberNotInClass(Class lop, Context ct){
+        List<Member> res = new ArrayList<>();
+        ClassMemberCRUD crud = new ClassMemberCRUD(ct);
+        List<Member> listMemberInClass = crud.getMemberfromClass(lop);
+        List<Member> allMember = getAllMembers();
+        boolean index[] = new boolean[allMember.size()];
+        for(int i = 0; i< allMember.size(); i++){
+            index[i] = true;
+        }
+        for (int i = 0; i< allMember.size(); i++){
+            for (int j =0; j <listMemberInClass.size(); j++){
+                if(allMember.get(i).getId() == listMemberInClass.get(j).getId()){
+                    index[i] = false;
+                }
+            }
+        }
+        for (int i = 0; i <index.length; i++){
+            if (index[i]){
+                res.add(allMember.get(i));
+            }
+        }
+        return res;
+    }
 }

@@ -10,12 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PLINK">
         <activity
+            android:name=".JoinClassActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SubmittedStudentActivity"
+            android:exported="false" />
+        <activity
             android:name=".ExcerciseDetailActivity"
             android:exported="true" />
         <activity
             android:name=".ExcerciseActivity"
-            android:exported="true"
-             />
+            android:exported="true" />
         <activity
             android:name=".CreateHomeworkActivity"
             android:exported="true" />
@@ -26,9 +31,13 @@
             android:name=".CreateClassActivity"
             android:exported="true" />
         <activity
+            android:name=".CreateClass2Activity"
+            android:exported="true" />
+        <activity
             android:name=".HomeActivity"
             android:exported="true"
-            android:label="" />
+            android:label=""
+            />
         <activity
             android:name=".MainActivity"
             android:exported="true">
