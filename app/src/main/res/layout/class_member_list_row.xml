@@ -19,13 +19,13 @@
         android:id="@+id/list_item_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="100dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
-        android:textSize="20dp"
-        android:layout_toEndOf="@+id/list_item_thumbnail"
-        android:text="TextView" />
+        android:layout_toRightOf="@+id/list_item_thumbnail"
+        android:fontFamily="@font/merriweather_bold"
+        android:text="Nguyen trung Kien"
+        android:layout_marginStart="50dp"
+        android:textSize="18dp" />
 
     <ImageButton
         android:id="@+id/list_item_button"

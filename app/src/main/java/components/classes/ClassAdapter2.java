@@ -68,7 +68,8 @@ public class ClassAdapter2 extends BaseAdapter {
         }
         viewHolder.ivCthumbnail.setImageResource(R.drawable.book);
         viewHolder.tvCName.setText(listClass.get(i).getName());
-        viewHolder.tvCID.setText(String.valueOf(listClass.get(i).getId()));
+
+        viewHolder.tvCID.setText("ID: "+ String.valueOf(listClass.get(i).getId()));
         return view;
     }
     public void search(String text){

@@ -5,7 +5,7 @@
 
     <item
         android:id="@+id/bell"
-        android:icon="@drawable/bell32"
+        android:icon="@drawable/logout"
         android:title="notifications"
         app:showAsAction="always"/>
 </menu>
