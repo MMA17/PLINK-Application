@@ -70,9 +70,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/excercisedetail_deadline"
-        android:layout_marginLeft="15dp"
         android:layout_marginVertical="10dp"
-        android:text="abc"
+        android:layout_marginLeft="15dp"
+        android:text=""
         android:textColor="@color/orange"
         android:textSize="18dp" />
 
