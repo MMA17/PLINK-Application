@@ -15,6 +15,7 @@
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_create_post.xml" value="0.1526268115942029" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_edit_user.xml" value="0.25416666666666665" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_excercise.xml" value="0.1526268115942029" />
+        <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_excercise_detail.xml" value="0.12360688956433637" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_home.xml" value="0.264" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_post.xml" value="0.25416666666666665" />
@@ -22,6 +23,7 @@
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_profile.xml" value="0.264" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_profile2.xml" value="0.25416666666666665" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_register.xml" value="0.264" />
+        <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_submitted_student.xml" value="0.12360688956433637" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/activity_user_profile.xml" value="0.25416666666666665" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/comment_item.xml" value="0.25416666666666665" />
         <entry key="..\:/Hoc/Android/PLINK/app/src/main/res/layout/content_profile.xml" value="0.25416666666666665" />
